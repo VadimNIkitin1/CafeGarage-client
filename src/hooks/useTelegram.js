@@ -1,4 +1,4 @@
-const tg = window.Telegram.WepApp;
+const tg = window.Telegram.WebApp;
 
 export const useTelegram = () => {
   const onClose = () => {
