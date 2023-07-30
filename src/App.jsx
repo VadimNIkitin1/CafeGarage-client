@@ -7,7 +7,6 @@ function App() {
   const { onClose } = useTelegram();
   return (
     <>
-      <Button>Close</Button>
       <ProductItem />
     </>
   );

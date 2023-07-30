@@ -9,16 +9,16 @@ const ProductItem = ({ product, className, onAdd }) => {
   return (
     <div className={"product " + className}>
       <div className={"img"} />
-      <div className={"title"}>Product</div>
-      <div className={"description"}>Product Desc</div>
-      <div className={"price"}>
-        <span>
-          Cтоимость: <b>110 RUB</b>
-        </span>
+      <div className={"title"}>
+        <div>Product</div>
+        <div className={"description"}>Product Desc</div>
       </div>
-      <Button className={"add-btn"} onClick={onAddHandler}>
-        Добавить в корзину
-      </Button>
+      <div className={"price"}>
+        <span>110 RUB</span>
+        <Button className={"add-btn"} onClick={onAddHandler}>
+          Добавить в корзину
+        </Button>
+      </div>
     </div>
   );
 };

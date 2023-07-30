@@ -1,17 +1,19 @@
 .product {
   display: flex;
-  flex-direction: column;
-  border: 1px solid var(--tg-theme-button-color);
   padding: 15px;
-  width: 170px;
+  width: 100%;
 }
 
 .img {
-  width: 100%;
-  background: lightgray;
+  width: 100px;
   height: 100px;
   margin: 0 auto;
   background: var(--tg-theme-button-color);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
 }
 
 .description {
@@ -19,5 +21,10 @@
 }
 
 .add-btn {
-  width: 100%;
+  width: 100px;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
 }
