@@ -10,8 +10,12 @@ const ProductItem = ({ product, className, onAdd }) => {
     <div className={"product " + className}>
       <div className={"img"} />
       <div className={"title_desc"}>
-        <div className={"title"}>Product</div>
-        <div className={"description"}>Product Desc</div>
+        <div className={"title"}>Карбонара</div>
+        <div className={"description"}>
+          Паста карбонара — спагетти с мелкими кусочками гуанчиале или панчетты,
+          смешанные с соусом из яиц, сыра пекорино романо, соли и свежемолотого
+          чёрного перца.{" "}
+        </div>
       </div>
       <div className={"purchase"}>
         <span className={"price"}>110 RUB</span>

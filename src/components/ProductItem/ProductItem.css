@@ -26,6 +26,7 @@
 
 .description {
   font-size: 18px;
+  word-wrap: break-word;
 }
 
 .add-btn {
