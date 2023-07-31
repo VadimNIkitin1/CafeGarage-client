@@ -17,8 +17,6 @@
 .title {
   display: flex;
   flex-direction: column;
-  font-size: 18px;
-  font-weight: 700;
 }
 
 .description {
@@ -30,8 +28,13 @@
   border-radius: 10px;
 }
 
-.price {
+.purchase {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 700;
 }
