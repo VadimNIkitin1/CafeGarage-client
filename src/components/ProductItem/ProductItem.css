@@ -25,6 +25,7 @@
 }
 
 .description {
+  width: 80%;
   font-size: 18px;
   overflow-x: hidden;
 }
