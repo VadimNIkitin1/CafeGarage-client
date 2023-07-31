@@ -17,6 +17,8 @@
 .title {
   display: flex;
   flex-direction: column;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .description {
@@ -31,4 +33,5 @@
 .price {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
