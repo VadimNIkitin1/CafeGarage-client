@@ -9,8 +9,8 @@ const ProductItem = ({ product, className, onAdd }) => {
   return (
     <div className={"product " + className}>
       <div className={"img"} />
-      <div className={"title"}>
-        <div>Product</div>
+      <div className={"title_desc"}>
+        <div className={"title"}>Product</div>
         <div className={"description"}>Product Desc</div>
       </div>
       <div className={"purchase"}>

@@ -14,13 +14,18 @@
   border-radius: 10px;
 }
 
-.title {
+.title_desc {
   display: flex;
   flex-direction: column;
 }
 
+.title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
 .description {
-  font-size: 0.8em;
+  font-size: 18px;
 }
 
 .add-btn {
