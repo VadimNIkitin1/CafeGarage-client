@@ -1,0 +1,20 @@
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+}
+
+.category {
+  padding: 10px;
+  margin: 5px;
+  background-color: #a6a6a6;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.category:active {
+  background-color: transparent;
+  color: #a6a6a6;
+}

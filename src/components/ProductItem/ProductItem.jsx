@@ -1,11 +1,12 @@
 import Button from "../Button/Button";
 import "./ProductItem.css";
 
-const ProductItem = ({ product, className, onAdd, item }) => {
-  const { name, price, description, imagePath } = item;
-  const onAddHandler = () => {
-    onAdd(product);
-  };
+const ProductItem = ({ className, onAdd, product }) => {
+  const { name, price, description, imagePath } = product;
+
+  // const onAddHandler = () => {
+  //   onAdd(product);
+  // };
 
   return (
     <div className={"product " + className}>
@@ -16,9 +17,7 @@ const ProductItem = ({ product, className, onAdd, item }) => {
       </div>
       <div className={"purchase"}>
         <span className={"price"}>{price} RUB</span>
-        <Button className={"add-btn"} onClick={onAddHandler}>
-          Добавить
-        </Button>
+        <Button className={"add-btn"}>Добавить</Button>
       </div>
     </div>
   );

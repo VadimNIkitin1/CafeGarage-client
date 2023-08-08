@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import ProductItem from "../ProductItem/ProductItem";
+import CategoriesList from "../CategoriesList/CategoriesList";
 
 const ProductList = () => {
-  const [items, setItems] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
     const res = await fetch("http://localhost:4200/api/products");
-    let data = await res.json();
-    return setItems(data);
+    const data = await res.json();
+    return setProducts(data);
   };
 
   useEffect(() => {
@@ -16,8 +17,9 @@ const ProductList = () => {
 
   return (
     <div>
-      {items.map((item) => (
-        <ProductItem key={item.name} item={item} />
+      <CategoriesList />
+      {products.map((product) => (
+        <ProductItem key={product.name} product={product} />
       ))}
     </div>
   );
