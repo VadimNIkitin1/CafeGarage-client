@@ -2,15 +2,15 @@ import Button from "../Button/Button";
 import "./ProductItem.css";
 
 const ProductItem = ({ product, className, onAdd, item }) => {
-  console.log(item);
   const { name, price, description, imagePath } = item;
+  console.log(imagePath);
   const onAddHandler = () => {
     onAdd(product);
   };
 
   return (
     <div className={"product " + className}>
-      <img className={"img"} />
+      <img className={"img"} src={`http://localhost:4200/${imagePath}`} />
       <div className={"title_desc"}>
         <div className={"title"}>{name}</div>
         <div className={"description"}>{description}</div>
