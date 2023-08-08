@@ -9,12 +9,13 @@ button {
 .category {
   padding: 10px;
   margin: 5px;
-  background-color: #a6a6a6;
+  color: #a6a6a6;
   border-radius: 15px;
   cursor: pointer;
+  border: 2px solid #a6a6a6;
 }
 
 .category:active {
-  background-color: transparent;
-  color: #a6a6a6;
+  background-color: #a6a6a6;
+  color: black;
 }

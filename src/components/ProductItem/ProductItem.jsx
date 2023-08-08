@@ -1,8 +1,11 @@
+import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import "./ProductItem.css";
 
 const ProductItem = ({ className, onAdd, product }) => {
   const { name, price, description, imagePath } = product;
+
+  const [categories, setCategories] = useState([]);
 
   // const onAddHandler = () => {
   //   onAdd(product);
