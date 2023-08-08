@@ -3,7 +3,6 @@ import "./ProductItem.css";
 
 const ProductItem = ({ product, className, onAdd, item }) => {
   const { name, price, description, imagePath } = item;
-  console.log(imagePath);
   const onAddHandler = () => {
     onAdd(product);
   };
