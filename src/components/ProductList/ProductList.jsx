@@ -1,25 +1,22 @@
-import { useState, useEffect } from "react";
-import ProductItem from "../ProductItem/ProductItem";
-import CategoriesList from "../CategoriesList/CategoriesList";
+import { useEffect, useState } from "react";
+import { getCategories } from "../../services/services.js";
+import ProductListElement from "../ProductListElement/ProductListElement ";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-
-  const getProducts = async () => {
-    const res = await fetch("http://localhost:4200/api/products");
-    const data = await res.json();
-    return setProducts(data);
-  };
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    getProducts();
+    getCategories().then((data) => setCategories(data));
   }, []);
 
   return (
     <div>
-      <CategoriesList />
-      {products.map((product) => (
-        <ProductItem key={product.name} product={product} />
+      {categories.map((category) => (
+        <ProductListElement
+          key={category.id}
+          categoryName={category.name}
+          categoryId={category.id}
+        />
       ))}
     </div>
   );

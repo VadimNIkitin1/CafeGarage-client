@@ -18,6 +18,8 @@
 .title_desc {
   display: flex;
   flex-direction: column;
+  margin-right: auto;
+  margin-left: 5px;
 }
 
 .title {

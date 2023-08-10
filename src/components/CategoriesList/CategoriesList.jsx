@@ -1,17 +1,12 @@
 import { useState, useEffect } from "react";
 import CategoriesItem from "../CategoriesItem/CategoriesItem";
+import { getCategories } from "../../services/services";
 
 const CategoriesList = () => {
   const [categories, setCategories] = useState([]);
 
-  const getCategories = async () => {
-    const res = await fetch("http://localhost:4200/api/categories");
-    const data = await res.json();
-    return setCategories(data);
-  };
-
   useEffect(() => {
-    getCategories();
+    getCategories().then((data) => setCategories(data));
   }, []);
 
   return (
