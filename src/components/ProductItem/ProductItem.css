@@ -1,6 +1,6 @@
 .product {
   display: flex;
-  padding: 15px;
+  padding: 5px 15px 5px 15px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -18,19 +18,21 @@
 .title_desc {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-right: auto;
   margin-left: 5px;
+  row-gap: 15px;
 }
 
 .title {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .description {
   font-size: 14px;
-  width: 160px;
-  height: 18px;
+  width: 95%;
+  height: 36px;
   overflow: hidden;
 }
 

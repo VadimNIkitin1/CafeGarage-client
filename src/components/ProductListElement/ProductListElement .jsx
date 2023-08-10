@@ -13,7 +13,7 @@ const ProductListElement = ({ categoryName, categoryId }) => {
   const filterProd = products.filter((prod) => prod.categoryId === categoryId);
 
   return (
-    <div>
+    <div className={"list-element"}>
       <h3 className={"category-name"}>{categoryName}</h3>
       {filterProd.map((prod) => (
         <ProductItem prod={prod} key={prod.id} />
