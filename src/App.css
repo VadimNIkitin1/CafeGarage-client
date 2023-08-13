@@ -4,9 +4,15 @@
   box-sizing: border-box;
   font-family: "Roboto";
   scroll-behavior: smooth;
+  scroll-padding-top: 130px;
 }
 
 body {
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
+}
+
+.app {
+  margin-top: 130px;
+  position: absolute;
 }

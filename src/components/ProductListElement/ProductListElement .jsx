@@ -1,12 +1,10 @@
-import { useState, useEffect, useRef, useContext, forwardRef } from "react";
+import { useState, useEffect } from "react";
 import { getProducts } from "../../services/services.js";
 import ProductItem from "../ProductItem/ProductItem.jsx";
 import "./ProductListElement.css";
-import { RefContext } from "../../App.jsx";
 
-const ProductListElement = forwardRef(({ categoryName, categoryId }, ref) => {
+const ProductListElement = ({ categoryName, categoryId }) => {
   const [products, setProducts] = useState([]);
-  const { value, setValue } = useContext(RefContext);
 
   useEffect(() => {
     getProducts().then((data) => setProducts(data));
@@ -24,6 +22,6 @@ const ProductListElement = forwardRef(({ categoryName, categoryId }, ref) => {
       ))}
     </div>
   );
-});
+};
 
 export default ProductListElement;

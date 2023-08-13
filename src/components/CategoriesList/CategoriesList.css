@@ -1,3 +1,7 @@
 .categories-list {
-  display: flex;
+  position: fixed;
+  top: 0;
+  width: 95%;
+  overflow: hidden;
+  background-color: #fff;
 }
