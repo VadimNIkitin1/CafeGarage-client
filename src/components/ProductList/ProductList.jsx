@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext, useRef, forwardRef } from "react";
 import { getCategories } from "../../services/services.js";
 import ProductListElement from "../ProductListElement/ProductListElement ";
+import "./ProductList.css";
 
 const ProductList = () => {
   const [categories, setCategories] = useState([]);
@@ -10,7 +11,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div>
+    <div className={"product-list"}>
       {categories.map((category) => (
         <ProductListElement
           key={category.id}
