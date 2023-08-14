@@ -197,22 +197,10 @@ export const products = [
 ];
 export const categories = [
   {
-    id: 11,
-    createdAt: "2023-08-08T17:22:34.367Z",
-    updatedAt: "2023-08-08T17:22:34.367Z",
-    name: "Роллы",
-  },
-  {
-    id: 10,
-    createdAt: "2023-08-08T17:22:21.218Z",
-    updatedAt: "2023-08-08T17:22:21.218Z",
-    name: "BBQ",
-  },
-  {
-    id: 7,
-    createdAt: "2023-08-08T17:21:39.403Z",
-    updatedAt: "2023-08-08T17:21:39.403Z",
-    name: "Рыбные блюда/морепродукты",
+    id: 1,
+    createdAt: "2023-08-08T13:09:14.007Z",
+    updatedAt: "2023-08-08T13:09:14.007Z",
+    name: "Салаты",
   },
   {
     id: 2,
@@ -221,9 +209,21 @@ export const categories = [
     name: "Пицца",
   },
   {
-    id: 1,
-    createdAt: "2023-08-08T13:09:14.007Z",
-    updatedAt: "2023-08-08T13:09:14.007Z",
-    name: "Салаты",
+    id: 10,
+    createdAt: "2023-08-08T17:22:21.218Z",
+    updatedAt: "2023-08-08T17:22:21.218Z",
+    name: "BBQ",
+  },
+  {
+    id: 11,
+    createdAt: "2023-08-08T17:22:34.367Z",
+    updatedAt: "2023-08-08T17:22:34.367Z",
+    name: "Роллы",
+  },
+  {
+    id: 12,
+    createdAt: "2023-08-08T17:21:39.403Z",
+    updatedAt: "2023-08-14T17:32:08.549Z",
+    name: "Рыбные блюда/морепродукты",
   },
 ];

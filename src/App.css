@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: "Roboto";
   scroll-behavior: smooth;
-  scroll-padding-top: 180px;
+  scroll-padding-top: 120px;
 }
 
 body {
@@ -13,6 +13,6 @@ body {
 }
 
 .app {
-  margin-top: 180px;
+  margin-top: 130px;
   position: absolute;
 }
