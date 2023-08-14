@@ -21,6 +21,7 @@ button {
 }
 
 .category-active {
+  height: 40px;
   padding: 10px;
   margin: 5px;
   border-radius: 15px;
