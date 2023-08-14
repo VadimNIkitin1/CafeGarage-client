@@ -14,18 +14,19 @@ button {
   height: 40px;
   color: #a6a6a6;
   border-radius: 15px;
-  cursor: pointer;
   border: 2px solid #a6a6a6;
   text-decoration: none;
   align-items: center;
 }
 
 .category-active {
-  height: 40px;
+  display: flex;
   padding: 10px;
   margin: 5px;
+  height: 40px;
+  color: black;
   border-radius: 15px;
   background-color: #a6a6a6;
-  color: black;
   text-decoration: none;
+  align-items: center;
 }
