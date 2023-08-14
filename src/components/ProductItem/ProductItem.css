@@ -7,8 +7,8 @@
 }
 
 .img {
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 85px;
   margin: 5px;
   background: var(--tg-theme-button-color);
   border-radius: 10px;
@@ -21,7 +21,7 @@
   justify-content: space-between;
   margin-right: auto;
   margin-left: 5px;
-  row-gap: 15px;
+  row-gap: 5px;
 }
 
 .title {
@@ -30,7 +30,7 @@
 }
 
 .description {
-  font-size: 14px;
+  font-size: 15px;
   width: 95%;
   height: 36px;
   overflow: hidden;
