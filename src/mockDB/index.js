@@ -2,7 +2,7 @@ export const products = [
   {
     id: 24,
     createdAt: "2023-08-10T19:55:23.065Z",
-    updatedAt: "2023-08-10T19:55:23.065Z",
+    updatedAt: "2023-08-14T17:47:04.157Z",
     name: "Флорида",
     price: 420,
     imagePath: "uploads/florida-rolls.jpeg",
@@ -13,22 +13,22 @@ export const products = [
   {
     id: 23,
     createdAt: "2023-08-10T19:52:55.198Z",
-    updatedAt: "2023-08-13T12:46:02.907Z",
-    name: "Калифорния",
-    price: 480,
-    imagePath: "uploads/california-rolls.jpeg",
-    description:
-      "Этот ролл является ярким представителем смешения различных кулинарных традиций, то есть фьюжн блюдом.",
+    updatedAt: "2023-08-14T17:47:26.692Z",
+    name: "Филадельфия",
+    price: 545,
+    imagePath: "uploads/philadelphia-rolls.jpeg",
+    description: "Качественное рыбное филе, рис, васаби и водоросли нори.",
     categoryId: 11,
   },
   {
     id: 22,
     createdAt: "2023-08-10T19:50:58.564Z",
-    updatedAt: "2023-08-10T19:50:58.564Z",
-    name: "Филадельфия",
+    updatedAt: "2023-08-14T17:47:48.301Z",
+    name: "Калифорния",
     price: 545,
-    imagePath: "uploads/philadelphia-rolls.jpeg",
-    description: "Качественное рыбное филе, рис, васаби и водоросли нори.",
+    imagePath: "uploads/california-rolls.jpeg",
+    description:
+      "Этот ролл является ярким представителем смешения различных кулинарных традиций, то есть фьюжн блюдом.",
     categoryId: 11,
   },
   {
@@ -72,7 +72,7 @@ export const products = [
     price: 950,
     imagePath: "uploads/shrimps-in-sauce.jpeg",
     description: "Нежные креветки идеально дополняет кисло-сладкий соус.",
-    categoryId: 7,
+    categoryId: 12,
   },
   {
     id: 17,
@@ -83,7 +83,7 @@ export const products = [
     imagePath: "uploads/salmon-steak.jpeg",
     description:
       "Чаще всего семга имеет нежный, слегка солоноватый вкус и обладает мягкой, жирной текстурой.",
-    categoryId: 7,
+    categoryId: 12,
   },
   {
     id: 16,
@@ -94,7 +94,7 @@ export const products = [
     imagePath: "uploads/pike-perch-fillet.jpeg",
     description:
       "Мясо судака считается диетическим, оно нежирное, отличается сладковатым вкусом и нерезким запахом",
-    categoryId: 7,
+    categoryId: 12,
   },
   {
     id: 15,
