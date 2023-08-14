@@ -4,17 +4,20 @@ button {
   color: inherit;
   background-color: transparent;
   border: none;
-  margin: 20px 0 20px 0;
+  margin: 5px 0 5px 0;
 }
 
 .category {
-  padding: 8px;
+  display: flex;
+  padding: 10px;
   margin: 5px;
+  height: 40px;
   color: #a6a6a6;
   border-radius: 15px;
   cursor: pointer;
   border: 2px solid #a6a6a6;
   text-decoration: none;
+  align-items: center;
 }
 
 /* .category:checked {
