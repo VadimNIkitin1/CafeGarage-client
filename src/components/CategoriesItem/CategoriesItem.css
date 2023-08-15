@@ -1,14 +1,6 @@
-button {
+.category {
   font-family: inherit;
   font-size: inherit;
-  color: inherit;
-  background-color: transparent;
-  border: none;
-  margin: 5px 0 5px 0;
-}
-
-.category {
-  display: flex;
   padding: 10px;
   margin: 5px;
   height: 40px;
@@ -16,11 +8,11 @@ button {
   border-radius: 15px;
   border: 2px solid #a6a6a6;
   text-decoration: none;
-  align-items: center;
 }
 
 .category-active {
-  display: flex;
+  font-family: inherit;
+  font-size: inherit;
   padding: 10px;
   margin: 5px;
   height: 40px;
@@ -28,5 +20,4 @@ button {
   border-radius: 15px;
   background-color: #a6a6a6;
   text-decoration: none;
-  align-items: center;
 }
