@@ -1,18 +1,15 @@
+import { useState } from "react";
 import "./CategoriesItem.css";
 
-const CategoriesItem = ({ category }) => {
+const CategoriesItem = ({ category, index, toggleTabs, activeTab }) => {
   const { name } = category;
-
-  const toggleTabs = (e) => {
-    e.target.className = "category-active";
-  };
 
   return (
     <button>
       <a
-        className={"category"}
+        className={activeTab === index ? "category-active" : "category"}
         href={`#${name}`}
-        onClick={(e) => toggleTabs(e)}
+        onClick={() => toggleTabs(index)}
       >
         {name}
       </a>

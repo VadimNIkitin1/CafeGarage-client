@@ -5,6 +5,13 @@ import "./CategoriesList.css";
 import { categories } from "../../mockDB";
 
 const CategoriesList = () => {
+  const [active, setActive] = useState(0);
+
+  const toggleTabs = (i) => {
+    console.log(i);
+    setActive(i);
+  };
+
   // const [categories, setCategories] = useState([]);
 
   // useEffect(() => {
@@ -13,8 +20,14 @@ const CategoriesList = () => {
 
   return (
     <div className={"categories-list"}>
-      {categories.map((category) => (
-        <CategoriesItem key={category.name} category={category} />
+      {categories.map((category, index) => (
+        <CategoriesItem
+          key={category.name}
+          category={category}
+          index={index}
+          toggleTabs={toggleTabs}
+          activeTab={active}
+        />
       ))}
     </div>
   );
