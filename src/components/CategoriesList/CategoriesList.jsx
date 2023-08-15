@@ -8,7 +8,6 @@ const CategoriesList = () => {
   const [active, setActive] = useState(0);
 
   const toggleTabs = (i) => {
-    console.log(i);
     setActive(i);
   };
 
