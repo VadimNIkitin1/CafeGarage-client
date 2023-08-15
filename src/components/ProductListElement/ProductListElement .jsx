@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import { getProducts } from "../../services/services.js";
 import ProductItem from "../ProductItem/ProductItem.jsx";
 import "./ProductListElement.css";
-import { products } from "../../mockDB/index.js";
+// import { products } from "../../mockDB/index.js";
 
 const ProductListElement = ({ categoryName, categoryId }) => {
-  // const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
-  // useEffect(() => {
-  //   getProducts().then((data) => setProducts(data));
-  // }, []);
+  useEffect(() => {
+    getProducts().then((data) => setProducts(data));
+  }, []);
 
-  const filterProd = products.filter((prod) => prod.categoryId === categoryId);
+  const filterProd = products.filter((prod) => prod.category === categoryId);
 
   return (
     <div className={"list-element"}>

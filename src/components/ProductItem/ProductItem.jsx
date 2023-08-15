@@ -2,7 +2,7 @@ import Button from "../Button/Button";
 import "./ProductItem.css";
 
 const ProductItem = ({ className, onAdd, prod }) => {
-  const { name, price, description, imagePath } = prod;
+  const { name, price, description, image } = prod;
 
   // const onAddHandler = () => {
   //   onAdd(product);
@@ -10,7 +10,7 @@ const ProductItem = ({ className, onAdd, prod }) => {
 
   return (
     <div className={"product " + className}>
-      <img className={"img"} src={`http://localhost:4200/${imagePath}`} />
+      <img className={"img"} src={image} />
       <div className={"title_desc"}>
         <div className={"title"}>{name}</div>
         <div className={"description"}>{description}</div>
