@@ -1,4 +1,9 @@
-import { defer, useAsyncValue, useLoaderData } from "react-router-dom";
+import {
+  defer,
+  useAsyncValue,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import { getProductById } from "../../services/services";
 
 import style from "./ProductPage.module.css";
@@ -8,8 +13,13 @@ import { useTelegram } from "../../hooks/useTelegram";
 const ProductPage = () => {
   const { product } = useLoaderData();
   const { tg } = useTelegram();
-
+  const navigate = useNavigate();
   tg.BackButton.show();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+  Telegram.WebApp.onEvent("backButtonClicked", goBack);
 
   const { description, imagePath, name } = product;
 
