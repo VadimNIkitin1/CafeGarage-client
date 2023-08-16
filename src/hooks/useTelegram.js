@@ -13,9 +13,18 @@ export const useTelegram = () => {
     }
   };
 
+  const onToggleBackButton = () => {
+    if (tg.BackButton.isVisible) {
+      tg.BackButton.hide();
+    } else {
+      tg.BackButton.show();
+    }
+  };
+
   return {
     onClose,
     onToggleButton,
+    onToggleBackButton,
     tg,
     user: tg.initDataUnsafe?.user,
     queryId: tg.initDataUnsafe?.query_id,

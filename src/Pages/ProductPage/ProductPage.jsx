@@ -2,10 +2,14 @@ import { defer, useAsyncValue, useLoaderData } from "react-router-dom";
 import { getProductById } from "../../services/services";
 
 import style from "./ProductPage.module.css";
+import { useTelegram } from "../../hooks/useTelegram";
 // import { products } from "../../mockDB/index.js";
 
 const ProductPage = () => {
   const { product } = useLoaderData();
+  const { tg } = useTelegram();
+
+  tg.BackButton.show();
 
   const { description, imagePath, name } = product;
 
