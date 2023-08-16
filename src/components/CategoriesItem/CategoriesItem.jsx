@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./CategoriesItem.css";
 
 const CategoriesItem = ({ category, index, toggleTabs, activeTab }) => {

@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import "./ProductItem.css";
 
 const ProductItem = ({ className, onAdd, prod }) => {
-  const { name, price, description, image } = prod;
+  const { name, price, id, imagePath } = prod;
 
   // const onAddHandler = () => {
   //   onAdd(product);
@@ -10,10 +11,12 @@ const ProductItem = ({ className, onAdd, prod }) => {
 
   return (
     <div className={"product " + className}>
-      <img className={"img"} src={image} />
+      <img className={"img"} src={`http://localhost:4200/${imagePath}`} />
       <div className={"title_desc"}>
         <div className={"title"}>{name}</div>
-        <div className={"description"}>{description}</div>
+        <Link to={`/products/${id}`} className={"description"}>
+          Подробнее...
+        </Link>
       </div>
       <div className={"purchase"}>
         <span className={"price"}>{price} RUB</span>

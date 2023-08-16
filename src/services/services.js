@@ -1,9 +1,19 @@
 export const getCategories = async () => {
-  const res = await fetch("http://62.217.176.220:8000/api/v1/categories/");
-  return await res.json();
+  const res = await fetch("http://localhost:4200/api/categories");
+
+  if (!res.ok) {
+    throw new Response("", { status: res.status, statusText: res.statusText });
+  }
+
+  return res.json();
 };
 
 export const getProducts = async () => {
-  const res = await fetch("http://62.217.176.220:8000/api/v1/products/");
-  return await res.json();
+  const res = await fetch("http://localhost:4200/api/products");
+  return res.json();
+};
+
+export const getProductById = async (id) => {
+  const res = await fetch(`http://localhost:4200/api/products/${id}`);
+  return res.json();
 };

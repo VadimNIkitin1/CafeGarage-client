@@ -30,10 +30,8 @@
 }
 
 .description {
-  font-size: 15px;
-  width: 95%;
-  height: 36px;
-  overflow: hidden;
+  text-decoration: none;
+  color: #a6a6a6;
 }
 
 .add-btn {

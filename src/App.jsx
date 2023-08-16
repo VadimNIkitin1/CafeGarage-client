@@ -1,8 +1,10 @@
-import { useTelegram } from "./hooks/useTelegram";
-import "./App.css";
-import CategoriesList from "./components/CategoriesList/CategoriesList";
-import ProductList from "./components/ProductList/ProductList";
 import { useEffect } from "react";
+import { useTelegram } from "./hooks/useTelegram";
+import { RouterProvider } from "react-router-dom";
+
+import "./App.css";
+
+import router from "./router";
 
 function App() {
   const { onClose, tg } = useTelegram();
@@ -13,8 +15,7 @@ function App() {
 
   return (
     <div className={"app"}>
-      <CategoriesList />
-      <ProductList />
+      <RouterProvider router={router} />
     </div>
   );
 }
