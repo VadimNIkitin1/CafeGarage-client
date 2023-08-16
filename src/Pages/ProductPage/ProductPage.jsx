@@ -19,7 +19,7 @@ const ProductPage = () => {
   const goBack = () => {
     navigate(-1);
   };
-  Telegram.WebApp.onEvent("backButtonClicked", goBack);
+  tg.onEvent("backButtonClicked", goBack);
 
   const { description, imagePath, name } = product;
 
