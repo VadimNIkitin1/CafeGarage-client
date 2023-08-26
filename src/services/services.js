@@ -1,5 +1,5 @@
 export const getCategories = async () => {
-  const res = await fetch("http://swarovskidmitrii.ru/api/v1/categories");
+  const res = await fetch("https://swarovskidmitrii.ru/api/v1/categories");
 
   if (!res.ok) {
     throw new Response("", { status: res.status, statusText: res.statusText });
@@ -19,7 +19,7 @@ export const getProducts = async () => {
 };
 
 export const getProductById = async (id) => {
-  const res = await fetch(`http://swarovskidmitrii.ru/api/v1/products/${id}`);
+  const res = await fetch(`https://swarovskidmitrii.ru/api/v1/products/${id}`);
 
   if (!res.ok) {
     throw new Response("", { status: res.status, statusText: res.statusText });
