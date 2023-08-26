@@ -1,9 +1,4 @@
-import {
-  defer,
-  useAsyncValue,
-  useLoaderData,
-  useNavigate,
-} from "react-router-dom";
+import { defer, useLoaderData, useNavigate } from "react-router-dom";
 import { getProductById } from "../../services/services";
 
 import style from "./ProductPage.module.css";
@@ -21,15 +16,11 @@ const ProductPage = () => {
   };
   tg.onEvent("backButtonClicked", goBack);
 
-  const { description, imagePath, name } = product;
+  const { description, image, name } = product;
 
   return (
     <div className={style.productPage}>
-      <img
-        className={style.img}
-        src={`http://localhost:4200/${imagePath}`}
-        alt={`${imagePath}`}
-      />
+      <img className={style.img} src={image} alt={`${image}`} />
       <h1 className={style.name}>{name}</h1>
       <i className={style.description}>{description}</i>
     </div>

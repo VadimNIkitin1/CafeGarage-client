@@ -11,7 +11,7 @@ const ProductListElement = ({ categoryName, categoryId }) => {
     getProducts().then((data) => setProducts(data));
   }, []);
 
-  const filterProd = products.filter((prod) => prod.categoryId === categoryId);
+  const filterProd = products.filter((prod) => prod.category === categoryId);
 
   return (
     <div className={"list-element"}>
