@@ -18,7 +18,7 @@ const HomePage = () => {
   useEffect(() => {
     tg.onEvent("mainButtonClicked", navigate("/form", { replace: true }));
     return () => {
-      tg.offEvent("mainButtonClicked", navigate("/form", { replace: true }));
+      tg.offEvent("mainButtonClicked");
     };
   }, [navigate]);
 
