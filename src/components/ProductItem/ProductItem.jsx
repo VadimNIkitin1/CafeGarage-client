@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
 import "./ProductItem.css";
+import { addToCart } from "../../services/services";
 
-const ProductItem = ({ className, onAdd, prod }) => {
+const ProductItem = ({ className, prod }) => {
   const { name, price, id, image } = prod;
 
-  // const onAddHandler = () => {
-  //   onAdd(product);
-  // };
+  const onAddHandler = (id) => {
+    addToCart(id).then((data) => console.log(data));
+  };
 
   return (
     <div className={"product " + className}>
@@ -20,7 +20,9 @@ const ProductItem = ({ className, onAdd, prod }) => {
       </div>
       <div className={"purchase"}>
         <span className={"price"}>{price} RUB</span>
-        <Button className={"add-btn"}>Добавить</Button>
+        <button className={"add-btn"} onClick={() => onAddHandler(id)}>
+          Добавить
+        </button>
       </div>
     </div>
   );

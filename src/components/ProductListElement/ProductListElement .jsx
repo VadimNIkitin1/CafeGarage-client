@@ -11,6 +11,8 @@ const ProductListElement = ({ categoryName, categoryId }) => {
     getProducts().then((data) => setProducts(data));
   }, []);
 
+  // getQuantityById(1).then((data) => setQuantity(data));
+
   const filterProd = products.filter((prod) => prod.category === categoryId);
 
   return (

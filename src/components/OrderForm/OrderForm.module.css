@@ -1,0 +1,13 @@
+.OrderForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderInput {
+  border: none;
+  background-color: #a6a6a6;
+  border-radius: 5px;
+  padding: 10px 10px;
+  color: white;
+  margin: 1px 0;
+}

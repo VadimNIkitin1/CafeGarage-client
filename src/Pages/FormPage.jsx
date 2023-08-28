@@ -1,5 +1,11 @@
+import { OrderList } from "../components/OrderList/OrderList";
+
 const FormPage = () => {
-  return <div>FormPage</div>;
+  return (
+    <div>
+      <OrderList />
+    </div>
+  );
 };
 
 export default FormPage;

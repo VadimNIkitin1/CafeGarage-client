@@ -5,6 +5,7 @@ import { useTelegram } from "../hooks/useTelegram";
 const HomePage = () => {
   const { tg } = useTelegram();
   tg.BackButton.hide();
+  tg.MainButton.show();
 
   return (
     <div>
