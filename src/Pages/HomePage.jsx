@@ -17,7 +17,11 @@ const HomePage = () => {
 
   tg.MainButton.show();
 
-  tg.onEvent("mainButtonClicked", navigate("/form", { replace: true }));
+  const goToForm = () => {
+    navigate("/form");
+  };
+
+  tg.onEvent("mainButtonClicked", goToForm);
 
   return (
     <div>
