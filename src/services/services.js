@@ -1,102 +1,99 @@
+import axios from "axios";
+
+axios.defaults.baseURL = "https://swarovskidmitrii.ru/api/v1";
+axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.withCredentials = true;
+
 export const getCategories = async () => {
-  const res = await fetch("https://swarovskidmitrii.ru/api/v1/categories");
-
-  if (!res.ok) {
-    throw new Response("", { status: res.status, statusText: res.statusText });
+  try {
+    const res = await axios.get(`/categories/`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
-
-  return res.json();
 };
 
 export const getProducts = async () => {
-  const res = await fetch("https://swarovskidmitrii.ru/api/v1/products");
-
-  if (!res.ok) {
-    throw new Response("", { status: res.status, statusText: res.statusText });
+  try {
+    const res = await axios.get(`/products/`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
-
-  return res.json();
 };
 
 export const getProductById = async (id) => {
-  const res = await fetch(`https://swarovskidmitrii.ru/api/v1/products/${id}`);
-
-  if (!res.ok) {
-    throw new Response("", { status: res.status, statusText: res.statusText });
+  try {
+    const res = await axios.get(`/products/${id}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
-
-  return res.json();
 };
 
 export const addToCart = async (id) => {
-  const res = await fetch(
-    `https://swarovskidmitrii.ru/api/v1/products/add-to-cart/?product_id=${id}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    }
-  );
-
-  if (!res.ok) {
-    throw new Response("", { status: res.status, statusText: res.statusText });
+  try {
+    const res = await axios.post(`/products/add-to-cart/`, {
+      product_id: id,
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
-
-  return res.json();
 };
 
-export const getQuantityById = async (id) => {
-  const res = await fetch(
-    `https://swarovskidmitrii.ru/api/v1/get-cart-item-quantity/?product_id=${id}`,
-    {
-      credentials: "include",
-    }
-  );
+// Запрос на получение актуального количества продукта в корзине
+// Подойдет для отладки и проверки добавляется ли товар
 
-  if (!res.ok) {
-    throw new Response("", { status: res.status, statusText: res.statusText });
+// export const getQuantityById = async (id) => {
+//   try {
+//     const res = await axios.get(`/get-cart-item-quantity/`, {
+//       params: {
+//         product_id: id,
+//       },
+//     });
+//     return res.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+export const decreaseProduct = async (id) => {
+  try {
+    const res = await axios.delete(`/products/decrease-cart-item/`, {
+      data: {
+        product_id: id,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
-
-  return res.json();
 };
 
-export const decreaseProduct = (id) => {
-  const res = fetch(
-    `https://swarovskidmitrii.ru/api/v1/decrease-cart-item/${id}`,
-    {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    }
-  );
-
-  if (!res.ok) {
-    throw new Response("", { status: res.status, statusText: res.statusText });
+export const getCart = async () => {
+  try {
+    const res = await axios.get(`/cart-items/`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
-
-  return res.json();
 };
 
-export const getCart = () => {
-  const res = fetch(`https://swarovskidmitrii.ru/api/v1/cart-items/`);
-
-  if (!res.ok) {
-    throw new Response("", { status: res.status, statusText: res.statusText });
+export const clearCart = async () => {
+  try {
+    const res = await axios.delete(`/clear-cart/`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
-
-  return res.json();
 };
 
-export const clearCart = () => {
-  const res = fetch(`https://swarovskidmitrii.ru/api/v1/clear-cart/`, {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-    credentials: "include",
-  });
-
-  if (!res.ok) {
-    throw new Response("", { status: res.status, statusText: res.statusText });
+export const getCartTotalPrice = async () => {
+  try {
+    const res = await axios.get("/get-cart-total-price/");
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
-
-  return res.json();
 };

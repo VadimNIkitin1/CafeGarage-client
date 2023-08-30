@@ -1,22 +1,26 @@
-import { defer, useLoaderData, useNavigate } from "react-router-dom";
-import { getProductById } from "../../services/services";
-
+import { defer, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import style from "./ProductPage.module.css";
 import { useTelegram } from "../../hooks/useTelegram";
+import { useEffect, useState } from "react";
+import { getProductById } from "../../services/services";
 // import { products } from "../../mockDB/index.js";
 
 const ProductPage = () => {
-  const { product } = useLoaderData();
+  const { id } = useParams();
+  const [product, setProduct] = useState([]);
+  const { description, image, name } = product;
   const { tg } = useTelegram();
   const navigate = useNavigate();
   tg.BackButton.show();
+
+  useEffect(() => {
+    getProductById(id).then((data) => setProduct(data));
+  }, []);
 
   const goBack = () => {
     navigate(-1);
   };
   tg.onEvent("backButtonClicked", goBack);
-
-  const { description, image, name } = product;
 
   return (
     <div className={style.productPage}>
@@ -27,10 +31,4 @@ const ProductPage = () => {
   );
 };
 
-const productLoader = async ({ params }) => {
-  const id = params.id;
-
-  return defer({ product: await getProductById(id), id });
-};
-
-export { ProductPage, productLoader };
+export default ProductPage;

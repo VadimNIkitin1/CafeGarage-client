@@ -55,4 +55,28 @@
 .price {
   font-size: 18px;
   font-weight: 700;
+  white-space: nowrap;
+}
+
+.quantity-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.plus-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #54be60;
+}
+
+.minus-btn {
+  padding: 10px;
+  border: none;
+  background: #fb923c;
+  border-radius: 5px;
+}
+
+.quantity {
+  margin: 5px;
 }

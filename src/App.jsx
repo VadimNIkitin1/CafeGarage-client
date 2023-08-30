@@ -7,7 +7,7 @@ import "./App.css";
 import router from "./router";
 
 function App() {
-  const { onClose, tg } = useTelegram();
+  const { tg } = useTelegram();
 
   useEffect(() => {
     tg.expand();

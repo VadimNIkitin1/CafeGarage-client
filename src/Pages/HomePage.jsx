@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { CategoriesList } from "../components/CategoriesList/CategoriesList";
+import CategoriesList from "../components/CategoriesList/CategoriesList";
 import ProductList from "../components/ProductList/ProductList";
 import { useTelegram } from "../hooks/useTelegram";
 import { useNavigate } from "react-router-dom";

@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, useRef, forwardRef } from "react";
+import { useEffect, useState } from "react";
 import { getCategories } from "../../services/services.js";
 import ProductListElement from "../ProductListElement/ProductListElement ";
 import "./ProductList.css";

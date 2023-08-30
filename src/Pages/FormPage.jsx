@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { OrderList } from "../components/OrderList/OrderList";
+import OrderList from "../components/OrderList/OrderList";
 import { useTelegram } from "../hooks/useTelegram";
 
 const FormPage = () => {

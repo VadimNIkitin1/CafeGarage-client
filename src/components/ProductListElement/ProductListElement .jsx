@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
 import { getProducts } from "../../services/services.js";
 import ProductItem from "../ProductItem/ProductItem.jsx";
 import "./ProductListElement.css";
+import { useEffect, useState } from "react";
+
 // import { products } from "../../mockDB/index.js";
 
 const ProductListElement = ({ categoryName, categoryId }) => {
@@ -10,8 +11,6 @@ const ProductListElement = ({ categoryName, categoryId }) => {
   useEffect(() => {
     getProducts().then((data) => setProducts(data));
   }, []);
-
-  // getQuantityById(1).then((data) => setQuantity(data));
 
   const filterProd = products.filter((prod) => prod.category === categoryId);
 

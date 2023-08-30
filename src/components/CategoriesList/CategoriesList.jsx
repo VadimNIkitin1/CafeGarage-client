@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CategoriesItem from "../CategoriesItem/CategoriesItem";
 import { getCategories } from "../../services/services";
 import "./CategoriesList.css";
-import { useLoaderData, defer } from "react-router-dom";
+
 // import { categories } from "../../mockDB";
 
 const CategoriesList = () => {
-  const { categories } = useLoaderData();
+  const [categories, setCategories] = useState([]);
   const [active, setActive] = useState(0);
 
   const toggleTabs = (i) => {
     setActive(i);
   };
+
+  useEffect(() => {
+    getCategories().then((data) => setCategories(data));
+  }, []);
 
   return (
     <div className={"categories-list"}>
@@ -28,10 +32,4 @@ const CategoriesList = () => {
   );
 };
 
-const categoriesLoader = async () => {
-  return defer({
-    categories: await getCategories(),
-  });
-};
-
-export { CategoriesList, categoriesLoader };
+export default CategoriesList;

@@ -6,11 +6,9 @@ import {
 
 import HomePage from "./Pages/HomePage";
 import FormPage from "./Pages/FormPage";
-import { ProductPage, productLoader } from "./Pages/ProductPage/ProductPage";
+import ProductPage from "./Pages/ProductPage/ProductPage";
 import ErrorPage from "./Pages/ErrorPage";
 import NotFoundPage from "./Pages/NotFoundPage";
-import { categoriesLoader } from "./components/CategoriesList/CategoriesList";
-// import { cartLoader } from "./components/OrderList/OrderList";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,20 +17,13 @@ const router = createBrowserRouter(
         index
         path="/"
         element={<HomePage />}
-        loader={categoriesLoader}
         errorElement={<ErrorPage />}
       />
-      <Route
-        path={"products/:id"}
-        element={<ProductPage />}
-        loader={productLoader}
-      />
-
+      <Route path={"products/:id"} element={<ProductPage />} />
       <Route
         path={"form"}
         element={<FormPage />}
         errorElement={<ErrorPage />}
-        // loader={cartLoader}
       />
       <Route path="*" element={<NotFoundPage />} />
     </>
