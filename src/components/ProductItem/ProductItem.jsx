@@ -4,7 +4,6 @@ import { contains } from "../../utils/contains";
 
 const ProductItem = ({
   prod,
-  cart,
   onAddHandler,
   onDecreaseHandler,
   cartArr,

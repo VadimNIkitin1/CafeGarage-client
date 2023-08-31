@@ -10,7 +10,6 @@ const OrderList = ({
   onAddHandler,
   onDecreaseHandler,
 }) => {
-  console.log(cart);
   return (
     <div className={style.orderListContainer}>
       <div className={style.orderTitle}>
