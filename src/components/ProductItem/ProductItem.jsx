@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import "./ProductItem.css";
+import { contains } from "../../utils/contains";
 
 const ProductItem = ({
-  className,
   prod,
   cart,
   onAddHandler,
   onDecreaseHandler,
+  cartArr,
+  cartQuantity,
 }) => {
   const { name, price, id, image } = prod;
 
@@ -21,20 +23,20 @@ const ProductItem = ({
       </div>
       <div className={"purchase"}>
         <span className={"price"}>{price} руб</span>
-        {cart[id] === undefined ? (
-          <button className={"add-btn"} onClick={() => onAddHandler(id)}>
-            Добавить
-          </button>
-        ) : (
+        {contains(cartArr, id) ? (
           <div className="quantity-buttons">
             <button className="minus-btn" onClick={() => onDecreaseHandler(id)}>
               ➖
             </button>
-            <p className="quantity">{cart[id - 1].quantity}</p>
+            <p className="quantity">{cartQuantity[cartArr.indexOf(id)]}</p>
             <button className="plus-btn" onClick={() => onAddHandler(id)}>
               ➕
             </button>
           </div>
+        ) : (
+          <button className={"add-btn"} onClick={() => onAddHandler(id)}>
+            Добавить
+          </button>
         )}
       </div>
     </div>

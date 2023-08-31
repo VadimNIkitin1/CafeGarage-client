@@ -1,7 +1,5 @@
-import { getProducts } from "../../services/services.js";
 import ProductItem from "../ProductItem/ProductItem.jsx";
 import "./ProductListElement.css";
-import { useEffect, useState } from "react";
 
 const ProductListElement = ({
   categoryName,
@@ -10,6 +8,8 @@ const ProductListElement = ({
   onDecreaseHandler,
   cart,
   products,
+  cartArr,
+  cartQuantity,
 }) => {
   const filterProd = products.filter((prod) => prod.category === categoryId);
 
@@ -25,6 +25,8 @@ const ProductListElement = ({
           cart={cart}
           onAddHandler={onAddHandler}
           onDecreaseHandler={onDecreaseHandler}
+          cartArr={cartArr}
+          cartQuantity={cartQuantity}
         />
       ))}
     </div>

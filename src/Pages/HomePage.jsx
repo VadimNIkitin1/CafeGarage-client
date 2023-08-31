@@ -68,6 +68,12 @@ const HomePage = () => {
     getCartTotalPrice().then((data) => console.log(data.total_price));
   };
 
+  const cartArr = [];
+  cart.map((el) => cartArr.push(el.product.id));
+
+  const cartQuantity = [];
+  cart.map((el) => cartQuantity.push(el.quantity));
+
   return (
     <div>
       <CategoriesList
@@ -81,6 +87,8 @@ const HomePage = () => {
         cart={cart}
         categories={categories}
         products={products}
+        cartArr={cartArr}
+        cartQuantity={cartQuantity}
       />
     </div>
   );

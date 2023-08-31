@@ -7,6 +7,8 @@ const ProductList = ({
   cart,
   categories,
   products,
+  cartArr,
+  cartQuantity,
 }) => {
   return (
     <div className={"product-list"}>
@@ -19,6 +21,8 @@ const ProductList = ({
           onDecreaseHandler={onDecreaseHandler}
           cart={cart}
           products={products}
+          cartArr={cartArr}
+          cartQuantity={cartQuantity}
         />
       ))}
     </div>
