@@ -10,7 +10,6 @@
   width: 85px;
   height: 85px;
   margin: 5px;
-  background: var(--tg-theme-button-color);
   border-radius: 10px;
   object-fit: cover;
 }

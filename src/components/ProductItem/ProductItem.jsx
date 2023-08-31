@@ -11,7 +11,7 @@ const ProductItem = ({
   const { name, price, id, image } = prod;
 
   return (
-    <div className={"product " + className}>
+    <div className={"product"}>
       <img className={"img"} src={image} />
       <div className={"title_desc"}>
         <div className={"title"}>{name}</div>
@@ -21,7 +21,7 @@ const ProductItem = ({
       </div>
       <div className={"purchase"}>
         <span className={"price"}>{price} руб</span>
-        {cart[id - 1] === undefined ? (
+        {cart[id] === undefined ? (
           <button className={"add-btn"} onClick={() => onAddHandler(id)}>
             Добавить
           </button>
