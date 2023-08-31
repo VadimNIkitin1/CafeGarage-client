@@ -1,22 +1,14 @@
 import { Link } from "react-router-dom";
 import "./ProductItem.css";
-import { addToCart, decreaseProduct } from "../../services/services";
-import { useState } from "react";
 
-const ProductItem = ({ className, prod }) => {
-  const [quantity, setQuantity] = useState(0);
-
+const ProductItem = ({
+  className,
+  prod,
+  cart,
+  onAddHandler,
+  onDecreaseHandler,
+}) => {
   const { name, price, id, image } = prod;
-
-  const onAddHandler = async (id) => {
-    setQuantity((prev) => prev + 1);
-    await addToCart(id).then((data) => console.log(data));
-  };
-
-  const onDecreaseHandler = async (id) => {
-    setQuantity((prev) => prev - 1);
-    await decreaseProduct(id).then((data) => console.log(data));
-  };
 
   return (
     <div className={"product " + className}>
@@ -29,7 +21,7 @@ const ProductItem = ({ className, prod }) => {
       </div>
       <div className={"purchase"}>
         <span className={"price"}>{price} руб</span>
-        {quantity === 0 ? (
+        {cart[id - 1] === undefined ? (
           <button className={"add-btn"} onClick={() => onAddHandler(id)}>
             Добавить
           </button>
@@ -38,7 +30,7 @@ const ProductItem = ({ className, prod }) => {
             <button className="minus-btn" onClick={() => onDecreaseHandler(id)}>
               ➖
             </button>
-            <p className="quantity">{quantity}</p>
+            <p className="quantity">{cart[id - 1].quantity}</p>
             <button className="plus-btn" onClick={() => onAddHandler(id)}>
               ➕
             </button>

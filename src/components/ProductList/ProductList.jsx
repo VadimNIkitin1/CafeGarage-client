@@ -1,22 +1,13 @@
-import { useEffect, useState } from "react";
-import { getCategories } from "../../services/services.js";
 import ProductListElement from "../ProductListElement/ProductListElement ";
 import "./ProductList.css";
-// import { categories } from "../../mockDB/index.js";
-// import { getQuantityById } from "../../services/services.js";
 
-const ProductList = () => {
-  const [categories, setCategories] = useState([]);
-  const [quantity, setQuantity] = useState(0);
-
-  useEffect(() => {
-    getCategories().then((data) => setCategories(data));
-  }, []);
-
-  // useEffect(() => {
-  //   getQuantityById(1).then((data) => console.log(data));
-  // }, []);
-
+const ProductList = ({
+  onAddHandler,
+  onDecreaseHandler,
+  cart,
+  categories,
+  products,
+}) => {
   return (
     <div className={"product-list"}>
       {categories.map((category) => (
@@ -24,6 +15,10 @@ const ProductList = () => {
           key={category.id}
           categoryName={category.name}
           categoryId={category.id}
+          onAddHandler={onAddHandler}
+          onDecreaseHandler={onDecreaseHandler}
+          cart={cart}
+          products={products}
         />
       ))}
     </div>

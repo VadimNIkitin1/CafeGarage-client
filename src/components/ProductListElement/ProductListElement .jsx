@@ -3,15 +3,14 @@ import ProductItem from "../ProductItem/ProductItem.jsx";
 import "./ProductListElement.css";
 import { useEffect, useState } from "react";
 
-// import { products } from "../../mockDB/index.js";
-
-const ProductListElement = ({ categoryName, categoryId }) => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    getProducts().then((data) => setProducts(data));
-  }, []);
-
+const ProductListElement = ({
+  categoryName,
+  categoryId,
+  onAddHandler,
+  onDecreaseHandler,
+  cart,
+  products,
+}) => {
   const filterProd = products.filter((prod) => prod.category === categoryId);
 
   return (
@@ -20,7 +19,13 @@ const ProductListElement = ({ categoryName, categoryId }) => {
         {categoryName}
       </h3>
       {filterProd.map((prod) => (
-        <ProductItem prod={prod} key={prod.id} />
+        <ProductItem
+          prod={prod}
+          key={prod.id}
+          cart={cart}
+          onAddHandler={onAddHandler}
+          onDecreaseHandler={onDecreaseHandler}
+        />
       ))}
     </div>
   );
