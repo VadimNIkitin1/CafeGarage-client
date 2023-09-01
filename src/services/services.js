@@ -33,15 +33,20 @@ export const getProductById = async (id) => {
 
 export const addToCart = async (id) => {
   try {
-    const res = await axios.post(`/products/add-to-cart/`, {
-      headers: {
-        "Content-Type": "application/json",
-        "access-control-allow-origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        "Access-Control-Allow-Methods": "*",
+    const res = await axios.post(
+      `/products/add-to-cart/`,
+      {
+        product_id: id,
       },
-      product_id: id,
-    });
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "access-control-allow-origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Access-Control-Allow-Methods": "*",
+        },
+      }
+    );
     return res.data;
   } catch (error) {
     console.log(error);
