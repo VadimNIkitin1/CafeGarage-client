@@ -57,15 +57,15 @@ const HomePage = () => {
   }, [quantity]);
 
   const onAddHandler = async (id) => {
-    await addToCart(id).then((data) => console.log(data));
+    await addToCart(id);
     setQuantity((prev) => prev + 1);
-    getCartTotalPrice().then((data) => console.log(data.total_price));
+    getCartTotalPrice();
   };
 
   const onDecreaseHandler = async (id) => {
-    await decreaseProduct(id).then((data) => console.log(data));
+    await decreaseProduct(id);
     setQuantity((prev) => prev - 1);
-    getCartTotalPrice().then((data) => console.log(data.total_price));
+    getCartTotalPrice();
   };
 
   const cartArr = [];
