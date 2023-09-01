@@ -1,7 +1,7 @@
 import axios from "axios";
 
 axios.defaults.baseURL = "https://swarovskidmitrii.ru/api/v1";
-axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.post = "application/json";
 axios.defaults.withCredentials = true;
 
 export const getCategories = async () => {
