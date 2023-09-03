@@ -40,7 +40,6 @@ export const addToCart = async (id) => {
       },
       {
         headers: {
-          "Content-Type": "application/json",
           "access-control-allow-origin": "*",
           "Access-Control-Allow-Headers": "Content-Type, Authorization",
           "Access-Control-Allow-Methods": "*",
