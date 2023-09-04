@@ -1,7 +1,6 @@
 import axios from "axios";
 
 axios.defaults.baseURL = "https://swarovskidmitrii.ru/api/v1";
-// axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.withCredentials = true;
 
 export const getCategories = async () => {
@@ -40,8 +39,8 @@ export const addToCart = async (id) => {
       },
       {
         headers: {
-          "access-control-allow-origin": "*",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Access-Control-Allow-origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type",
           "Access-Control-Allow-Methods": "*",
         },
       }

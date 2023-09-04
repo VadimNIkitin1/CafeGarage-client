@@ -19,7 +19,7 @@ const FormPage = () => {
 
   const clearCartHandler = () => {
     clearCart().then((data) => console.log(data));
-    navigate("/");
+    navigate(-1);
   };
 
   useEffect(() => {
