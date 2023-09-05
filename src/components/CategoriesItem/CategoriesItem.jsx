@@ -1,15 +1,17 @@
+import { useSelector, useDispatch } from "react-redux";
+import { toggleTabs } from "../../store/activeSlice";
 import "./CategoriesItem.css";
 
-const CategoriesItem = ({ category, index, toggleTabs, activeTab }) => {
-  const { name } = category;
-
+const CategoriesItem = ({ category, index }) => {
+  const activeTab = useSelector((state) => state.activeTab.active);
+  const dispatch = useDispatch();
   return (
     <a
       className={activeTab === index ? "category-active" : "category"}
-      href={`#${name}`}
-      onClick={() => toggleTabs(index)}
+      href={`#${category.name}`}
+      onClick={() => dispatch(toggleTabs(index))}
     >
-      {name}
+      {category.name}
     </a>
   );
 };

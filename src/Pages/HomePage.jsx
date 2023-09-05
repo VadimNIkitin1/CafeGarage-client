@@ -17,9 +17,12 @@ const HomePage = () => {
   const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(0);
   const [categories, setCategories] = useState([]);
-  const [active, setActive] = useState(0);
+  const cartArr = [];
+  const cartQuantity = [];
+
   const navigate = useNavigate();
   const { tg } = useTelegram();
+
   tg.BackButton.hide();
 
   useEffect(() => {
@@ -41,20 +44,20 @@ const HomePage = () => {
   tg.onEvent("mainButtonClicked", goToForm);
 
   useEffect(() => {
-    getProducts().then((data) => setProducts(data));
+    getProducts().then((data) => setProducts(() => data));
   }, []);
 
   useEffect(() => {
-    getCategories().then((data) => setCategories(data));
+    getCategories().then((data) => setCategories(() => data));
   }, []);
-
-  const toggleTabs = (i) => {
-    setActive(i);
-  };
 
   useEffect(() => {
     getCart().then((data) => setCart(data));
   }, [quantity]);
+
+  cart.map(
+    (el) => cartArr.push(el.product.id) && cartQuantity.push(el.quantity)
+  );
 
   const onAddHandler = async (id) => {
     await addToCart(id).then((data) => console.log(data));
@@ -68,19 +71,9 @@ const HomePage = () => {
     getCartTotalPrice();
   };
 
-  const cartArr = [];
-  cart.map((el) => cartArr.push(el.product.id));
-
-  const cartQuantity = [];
-  cart.map((el) => cartQuantity.push(el.quantity));
-
   return (
     <div>
-      <CategoriesList
-        categories={categories}
-        toggleTabs={toggleTabs}
-        active={active}
-      />
+      <CategoriesList categories={categories} />
       <ProductList
         onAddHandler={onAddHandler}
         onDecreaseHandler={onDecreaseHandler}
