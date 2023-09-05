@@ -17,9 +17,9 @@ const FormPage = () => {
   const { tg } = useTelegram();
   const navigate = useNavigate();
 
-  const clearCartHandler = () => {
-    clearCart().then((data) => console.log(data));
-    navigate(-1);
+  const clearCartHandler = async () => {
+    await clearCart().then((data) => console.log(data));
+    navigate("/");
   };
 
   useEffect(() => {
