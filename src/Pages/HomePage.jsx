@@ -7,15 +7,18 @@ import {
   getCart,
   addToCart,
   decreaseProduct,
-  getCartTotalPrice,
   getCategories,
   getProducts,
 } from "../services/services";
+import { useDispatch, useSelector } from "react-redux";
+import { incrementQuantity, decrementQuantity } from "../store/quantitySlice";
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+  const quantity = useSelector((state) => state.quantity.quantity);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [quantity, setQuantity] = useState(0);
+
   const [categories, setCategories] = useState([]);
   const cartArr = [];
   const cartQuantity = [];
@@ -60,15 +63,13 @@ const HomePage = () => {
   );
 
   const onAddHandler = async (id) => {
-    await addToCart(id).then((data) => console.log(data));
-    setQuantity((prev) => prev + 1);
-    getCartTotalPrice().then((data) => console.log(data));
+    await addToCart(id);
+    dispatch(incrementQuantity());
   };
 
   const onDecreaseHandler = async (id) => {
     await decreaseProduct(id);
-    setQuantity((prev) => prev - 1);
-    getCartTotalPrice();
+    dispatch(decrementQuantity());
   };
 
   return (
