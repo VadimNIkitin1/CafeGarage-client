@@ -1,15 +1,15 @@
 import ProductListElement from "../ProductListElement/ProductListElement ";
 import "./ProductList.css";
+import { useSelector } from "react-redux";
 
 const ProductList = ({
   onAddHandler,
   onDecreaseHandler,
-  cart,
-  categories,
-  products,
   cartArr,
   cartQuantity,
 }) => {
+  const categories = useSelector((state) => state.categories.categories);
+
   return (
     <div className={"product-list"}>
       {categories.map((category) => (
@@ -19,8 +19,6 @@ const ProductList = ({
           categoryId={category.id}
           onAddHandler={onAddHandler}
           onDecreaseHandler={onDecreaseHandler}
-          cart={cart}
-          products={products}
           cartArr={cartArr}
           cartQuantity={cartQuantity}
         />

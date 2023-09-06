@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const activeSlice = createSlice({
+const slice = createSlice({
   name: "active",
   initialState: {
     active: 0,
@@ -12,6 +12,6 @@ const activeSlice = createSlice({
   },
 });
 
-export const { toggleTabs } = activeSlice.actions;
+export const { toggleTabs } = slice.actions;
 
-export default activeSlice.reducer;
+export default slice.reducer;

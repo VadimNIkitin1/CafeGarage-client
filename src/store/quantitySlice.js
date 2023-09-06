@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const quantitySlice = createSlice({
+const slice = createSlice({
   name: "quantity",
   initialState: {
     quantity: 0,
@@ -15,6 +15,6 @@ const quantitySlice = createSlice({
   },
 });
 
-export const { incrementQuantity, decrementQuantity } = quantitySlice.actions;
+export const { incrementQuantity, decrementQuantity } = slice.actions;
 
-export default quantitySlice.reducer;
+export default slice.reducer;

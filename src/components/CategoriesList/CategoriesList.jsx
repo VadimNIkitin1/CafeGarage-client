@@ -1,8 +1,10 @@
 import CategoriesItem from "../CategoriesItem/CategoriesItem";
-
+import { useSelector } from "react-redux";
 import "./CategoriesList.css";
 
-const CategoriesList = ({ categories }) => {
+const CategoriesList = () => {
+  const categories = useSelector((state) => state.categories.categories);
+
   return (
     <div className={"categories-list"}>
       {categories.map((category, index) => (

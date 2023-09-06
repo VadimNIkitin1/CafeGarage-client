@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import CategoriesList from "../components/CategoriesList/CategoriesList";
 import ProductList from "../components/ProductList/ProductList";
+
 import { useTelegram } from "../hooks/useTelegram";
-import { useNavigate } from "react-router-dom";
-import {
-  getCart,
-  addToCart,
-  decreaseProduct,
-  getCategories,
-  getProducts,
-} from "../services/services";
-import { useDispatch, useSelector } from "react-redux";
+
+import { getCart, addToCart, decreaseProduct } from "../services/services";
+
 import { incrementQuantity, decrementQuantity } from "../store/quantitySlice";
+import { fetchCategories } from "../store/categoriesSlice";
+import { fetchProducts } from "../store/productsSlice";
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.quantity.quantity);
-  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
-  const [categories, setCategories] = useState([]);
   const cartArr = [];
   const cartQuantity = [];
 
@@ -47,11 +45,11 @@ const HomePage = () => {
   tg.onEvent("mainButtonClicked", goToForm);
 
   useEffect(() => {
-    getProducts().then((data) => setProducts(() => data));
+    dispatch(fetchCategories());
   }, []);
 
   useEffect(() => {
-    getCategories().then((data) => setCategories(() => data));
+    dispatch(fetchProducts());
   }, []);
 
   useEffect(() => {
@@ -74,13 +72,11 @@ const HomePage = () => {
 
   return (
     <div>
-      <CategoriesList categories={categories} />
+      <CategoriesList />
       <ProductList
         onAddHandler={onAddHandler}
         onDecreaseHandler={onDecreaseHandler}
         cart={cart}
-        categories={categories}
-        products={products}
         cartArr={cartArr}
         cartQuantity={cartQuantity}
       />
