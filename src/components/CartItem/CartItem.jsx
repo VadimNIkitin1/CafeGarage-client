@@ -1,12 +1,9 @@
 import style from "./CartItem.module.css";
+import { onDecreaseProduct, onAddProduct } from "../../store/cartSlice";
+import { useDispatch } from "react-redux";
 
-const CartItem = ({
-  prod,
-  quantity,
-  prodTotalPrice,
-  onAddHandler,
-  onDecreaseHandler,
-}) => {
+const CartItem = ({ prod, quantity, prodTotalPrice }) => {
+  const dispatch = useDispatch();
   const { image, name, price, id } = prod;
 
   return (
@@ -21,11 +18,17 @@ const CartItem = ({
       </p>
       {
         <div className="quantity-buttons">
-          <button className="minus-btn" onClick={() => onDecreaseHandler(id)}>
+          <button
+            className="minus-btn"
+            onClick={() => dispatch(onDecreaseProduct(id))}
+          >
             ➖
           </button>
           <p className="quantity">{quantity}</p>
-          <button className="plus-btn" onClick={() => onAddHandler(id)}>
+          <button
+            className="plus-btn"
+            onClick={() => dispatch(onAddProduct(id))}
+          >
             ➕
           </button>
         </div>

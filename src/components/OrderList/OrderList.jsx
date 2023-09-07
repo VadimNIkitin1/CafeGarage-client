@@ -1,20 +1,26 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import style from "./OrderList.module.css";
 import { BsFillTrashFill } from "react-icons/bs";
 import OrderForm from "../OrderForm/OrderForm";
 import CartItem from "../CartItem/CartItem";
+import { onClearCart } from "../../store/cartSlice";
 
-const OrderList = ({
-  totalPrice,
-  clearCartHandler,
-  cart,
-  onAddHandler,
-  onDecreaseHandler,
-}) => {
+const OrderList = ({ cart }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+
+  const onClear = async () => {
+    await dispatch(onClearCart());
+    navigate("/");
+  };
+
   return (
     <div className={style.orderListContainer}>
       <div className={style.orderTitle}>
         <h1>Ваш заказ</h1>
-        <button className={style.trashBtn} onClick={() => clearCartHandler()}>
+        <button className={style.trashBtn} onClick={() => onClear()}>
           <BsFillTrashFill />
         </button>
       </div>
@@ -28,8 +34,6 @@ const OrderList = ({
               key={prod.product.id}
               quantity={prod.quantity}
               prodTotalPrice={prod.total_price}
-              onAddHandler={onAddHandler}
-              onDecreaseHandler={onDecreaseHandler}
             />
           ))
         )}

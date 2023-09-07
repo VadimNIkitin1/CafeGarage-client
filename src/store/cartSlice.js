@@ -1,5 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getCart, decreaseProduct, addToCart } from "../services/services";
+import {
+  getCart,
+  decreaseProduct,
+  addToCart,
+  getCartTotalPrice,
+  clearCart,
+} from "../services/services";
 
 export const fetchCart = createAsyncThunk("cart/fetchCart", async () => {
   return await getCart();
@@ -29,10 +35,22 @@ export const onAddProduct = createAsyncThunk(
   }
 );
 
+export const fetchTotalPrice = createAsyncThunk(
+  "cart/fetchTotalPrice",
+  async () => {
+    return await getCartTotalPrice();
+  }
+);
+
+export const onClearCart = createAsyncThunk("cart/onClearCart", async () => {
+  return await clearCart();
+});
+
 const slice = createSlice({
   name: "cart",
   initialState: {
     cart: [],
+    totalPrice: 0,
     quantity: 0,
     status: null,
     error: null,
@@ -56,6 +74,19 @@ const slice = createSlice({
       state.cart = action.payload;
     },
     [fetchCart.rejected]: (state, action) => {
+      state.status = "rejected";
+      state.error = action.payload;
+    },
+    [fetchTotalPrice.pending]: (state) => {
+      state.status = "loading";
+      state.error = null;
+    },
+    [fetchTotalPrice.fulfilled]: (state, action) => {
+      state.status = "resolved";
+      state.error = null;
+      state.totalPrice = action.payload.total_price;
+    },
+    [fetchTotalPrice.rejected]: (state, action) => {
       state.status = "rejected";
       state.error = action.payload;
     },

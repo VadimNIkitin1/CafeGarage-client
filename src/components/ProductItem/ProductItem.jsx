@@ -3,8 +3,12 @@ import "./ProductItem.css";
 import { contains } from "../../utils/contains";
 import { onDecreaseProduct, onAddProduct } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
+import { useContext } from "react";
+import { Context } from "../../Pages/HomePage";
 
-const ProductItem = ({ prod, onAddHandler, cartArr, cartQuantity }) => {
+const ProductItem = ({ prod }) => {
+  const { cartArr, cartQuantity } = useContext(Context);
+
   const dispatch = useDispatch();
   const { name, price, id, image } = prod;
 

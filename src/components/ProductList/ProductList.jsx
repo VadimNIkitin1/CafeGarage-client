@@ -2,7 +2,7 @@ import ProductListElement from "../ProductListElement/ProductListElement ";
 import "./ProductList.css";
 import { useSelector } from "react-redux";
 
-const ProductList = ({ cartArr, cartQuantity }) => {
+const ProductList = () => {
   const categories = useSelector((state) => state.categories.categories);
 
   return (
@@ -12,8 +12,6 @@ const ProductList = ({ cartArr, cartQuantity }) => {
           key={category.id}
           categoryName={category.name}
           categoryId={category.id}
-          cartArr={cartArr}
-          cartQuantity={cartQuantity}
         />
       ))}
     </div>

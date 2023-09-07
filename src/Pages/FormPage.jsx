@@ -1,46 +1,23 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import OrderList from "../components/OrderList/OrderList";
+
 import { useTelegram } from "../hooks/useTelegram";
-import {
-  getCartTotalPrice,
-  getCart,
-  addToCart,
-  decreaseProduct,
-  clearCart,
-} from "../services/services";
+
+import { fetchCart, fetchTotalPrice } from "../store/cartSlice";
 
 const FormPage = () => {
-  const [quantity, setQuantity] = useState(0);
-  const [cart, setCart] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const dispatch = useDispatch();
+  const quantity = useSelector((state) => state.cart.quantity);
+  const cart = useSelector((state) => state.cart.cart);
+
   const { tg } = useTelegram();
-  const navigate = useNavigate();
-
-  const clearCartHandler = async () => {
-    await clearCart().then((data) => console.log(data));
-    navigate("/");
-  };
 
   useEffect(() => {
-    getCart().then((data) => setCart(data));
+    dispatch(fetchCart());
+    dispatch(fetchTotalPrice());
   }, [quantity]);
-
-  useEffect(() => {
-    getCartTotalPrice().then((data) => setTotalPrice(data.total_price));
-  }, [quantity]);
-
-  const onAddHandler = async (id) => {
-    await addToCart(id).then((data) => console.log(data));
-    setQuantity((prev) => prev + 1);
-    getCartTotalPrice().then((data) => console.log(data.total_price));
-  };
-
-  const onDecreaseHandler = async (id) => {
-    await decreaseProduct(id).then((data) => console.log(data));
-    setQuantity((prev) => prev - 1);
-    getCartTotalPrice().then((data) => console.log(data.total_price));
-  };
 
   tg.BackButton.show();
   tg.MainButton.hide();
@@ -53,13 +30,7 @@ const FormPage = () => {
 
   return (
     <div>
-      <OrderList
-        totalPrice={totalPrice}
-        clearCartHandler={clearCartHandler}
-        cart={cart}
-        onAddHandler={onAddHandler}
-        onDecreaseHandler={onDecreaseHandler}
-      />
+      <OrderList cart={cart} />
     </div>
   );
 };

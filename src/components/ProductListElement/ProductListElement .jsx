@@ -2,12 +2,7 @@ import { useSelector } from "react-redux";
 import ProductItem from "../ProductItem/ProductItem.jsx";
 import "./ProductListElement.css";
 
-const ProductListElement = ({
-  categoryName,
-  categoryId,
-  cartArr,
-  cartQuantity,
-}) => {
+const ProductListElement = ({ categoryName, categoryId }) => {
   const products = useSelector((state) => state.products.products);
   const filterProd = products.filter((prod) => prod.category === categoryId);
 
@@ -17,12 +12,7 @@ const ProductListElement = ({
         {categoryName}
       </h3>
       {filterProd.map((prod) => (
-        <ProductItem
-          prod={prod}
-          key={prod.id}
-          cartArr={cartArr}
-          cartQuantity={cartQuantity}
-        />
+        <ProductItem prod={prod} key={prod.id} />
       ))}
     </div>
   );
