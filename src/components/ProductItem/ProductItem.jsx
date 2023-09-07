@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import "./ProductItem.css";
 import { contains } from "../../utils/contains";
+import { onDecreaseProduct, onAddProduct } from "../../store/cartSlice";
+import { useDispatch } from "react-redux";
 
-const ProductItem = ({
-  prod,
-  onAddHandler,
-  onDecreaseHandler,
-  cartArr,
-  cartQuantity,
-}) => {
+const ProductItem = ({ prod, onAddHandler, cartArr, cartQuantity }) => {
+  const dispatch = useDispatch();
   const { name, price, id, image } = prod;
 
   return (
@@ -24,16 +21,25 @@ const ProductItem = ({
         <span className={"price"}>{price} руб</span>
         {contains(cartArr, id) ? (
           <div className="quantity-buttons">
-            <button className="minus-btn" onClick={() => onDecreaseHandler(id)}>
+            <button
+              className="minus-btn"
+              onClick={() => dispatch(onDecreaseProduct(id))}
+            >
               ➖
             </button>
             <p className="quantity">{cartQuantity[cartArr.indexOf(id)]}</p>
-            <button className="plus-btn" onClick={() => onAddHandler(id)}>
+            <button
+              className="plus-btn"
+              onClick={() => dispatch(onAddProduct(id))}
+            >
               ➕
             </button>
           </div>
         ) : (
-          <button className={"add-btn"} onClick={() => onAddHandler(id)}>
+          <button
+            className={"add-btn"}
+            onClick={() => dispatch(onAddProduct(id))}
+          >
             Добавить
           </button>
         )}

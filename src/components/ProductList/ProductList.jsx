@@ -2,12 +2,7 @@ import ProductListElement from "../ProductListElement/ProductListElement ";
 import "./ProductList.css";
 import { useSelector } from "react-redux";
 
-const ProductList = ({
-  onAddHandler,
-  onDecreaseHandler,
-  cartArr,
-  cartQuantity,
-}) => {
+const ProductList = ({ cartArr, cartQuantity }) => {
   const categories = useSelector((state) => state.categories.categories);
 
   return (
@@ -17,8 +12,6 @@ const ProductList = ({
           key={category.id}
           categoryName={category.name}
           categoryId={category.id}
-          onAddHandler={onAddHandler}
-          onDecreaseHandler={onDecreaseHandler}
           cartArr={cartArr}
           cartQuantity={cartQuantity}
         />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -7,16 +7,13 @@ import ProductList from "../components/ProductList/ProductList";
 
 import { useTelegram } from "../hooks/useTelegram";
 
-import { addToCart, decreaseProduct } from "../services/services";
-
-import { incrementQuantity, decrementQuantity } from "../store/quantitySlice";
 import { fetchCategories } from "../store/categoriesSlice";
 import { fetchProducts } from "../store/productsSlice";
 import { fetchCart } from "../store/cartSlice";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const quantity = useSelector((state) => state.quantity.quantity);
+  const quantity = useSelector((state) => state.cart.quantity);
   const cart = useSelector((state) => state.cart.cart);
 
   const cartArr = [];
@@ -58,25 +55,10 @@ const HomePage = () => {
     (el) => cartArr.push(el.product.id) && cartQuantity.push(el.quantity)
   );
 
-  const onAddHandler = async (id) => {
-    await addToCart(id);
-    dispatch(incrementQuantity());
-  };
-
-  const onDecreaseHandler = async (id) => {
-    await decreaseProduct(id);
-    dispatch(decrementQuantity());
-  };
-
   return (
     <div>
       <CategoriesList />
-      <ProductList
-        onAddHandler={onAddHandler}
-        onDecreaseHandler={onDecreaseHandler}
-        cartArr={cartArr}
-        cartQuantity={cartQuantity}
-      />
+      <ProductList cartArr={cartArr} cartQuantity={cartQuantity} />
     </div>
   );
 };

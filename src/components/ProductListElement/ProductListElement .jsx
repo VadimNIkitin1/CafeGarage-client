@@ -5,8 +5,6 @@ import "./ProductListElement.css";
 const ProductListElement = ({
   categoryName,
   categoryId,
-  onAddHandler,
-  onDecreaseHandler,
   cartArr,
   cartQuantity,
 }) => {
@@ -22,8 +20,6 @@ const ProductListElement = ({
         <ProductItem
           prod={prod}
           key={prod.id}
-          onAddHandler={onAddHandler}
-          onDecreaseHandler={onDecreaseHandler}
           cartArr={cartArr}
           cartQuantity={cartQuantity}
         />
