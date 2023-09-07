@@ -7,22 +7,25 @@ import ProductList from "../components/ProductList/ProductList";
 
 import { useTelegram } from "../hooks/useTelegram";
 
-import { getCart, addToCart, decreaseProduct } from "../services/services";
+import { addToCart, decreaseProduct } from "../services/services";
 
 import { incrementQuantity, decrementQuantity } from "../store/quantitySlice";
 import { fetchCategories } from "../store/categoriesSlice";
 import { fetchProducts } from "../store/productsSlice";
+import { fetchCart } from "../store/cartSlice";
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.quantity.quantity);
-  const [cart, setCart] = useState([]);
+  const cart = useSelector((state) => state.cart.cart);
 
   const cartArr = [];
   const cartQuantity = [];
 
   const navigate = useNavigate();
   const { tg } = useTelegram();
+
+  tg.BackButton.hide();
 
   useEffect(() => {
     tg.MainButton.setParams({
@@ -44,14 +47,11 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(fetchCategories());
-  }, []);
-
-  useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
   useEffect(() => {
-    getCart().then((data) => setCart(data));
+    dispatch(fetchCart());
   }, [quantity]);
 
   cart.map(
@@ -74,7 +74,6 @@ const HomePage = () => {
       <ProductList
         onAddHandler={onAddHandler}
         onDecreaseHandler={onDecreaseHandler}
-        cart={cart}
         cartArr={cartArr}
         cartQuantity={cartQuantity}
       />
