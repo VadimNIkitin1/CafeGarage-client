@@ -6,10 +6,11 @@ import OrderForm from "../OrderForm/OrderForm";
 import CartItem from "../CartItem/CartItem";
 import { onClearCart } from "../../store/cartSlice";
 
-const OrderList = ({ cart }) => {
+const OrderList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const cart = useSelector((state) => state.cart.cart);
 
   const onClear = async () => {
     await dispatch(onClearCart());

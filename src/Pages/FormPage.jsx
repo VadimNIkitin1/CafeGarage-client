@@ -12,7 +12,6 @@ const FormPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
-  const cart = useSelector((state) => state.cart.cart);
 
   const { tg } = useTelegram();
 
@@ -28,7 +27,7 @@ const FormPage = () => {
 
   return (
     <div>
-      <OrderList cart={cart} />
+      <OrderList />
     </div>
   );
 };
