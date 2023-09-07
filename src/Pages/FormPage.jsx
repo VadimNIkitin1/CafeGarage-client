@@ -22,11 +22,7 @@ const FormPage = () => {
   tg.BackButton.show();
   tg.MainButton.hide();
 
-  const goBack = () => {
-    navigate(-1);
-  };
-
-  tg.onEvent("backButtonClicked", goBack);
+  tg.onEvent("backButtonClicked", () => navigate(-1));
 
   return (
     <div>
