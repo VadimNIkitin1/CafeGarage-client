@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import OrderList from "../components/OrderList/OrderList";
 
@@ -8,6 +9,7 @@ import { useTelegram } from "../hooks/useTelegram";
 import { fetchCart, fetchTotalPrice } from "../store/cartSlice";
 
 const FormPage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
   const cart = useSelector((state) => state.cart.cart);
@@ -22,11 +24,7 @@ const FormPage = () => {
   tg.BackButton.show();
   tg.MainButton.hide();
 
-  const goBack = () => {
-    navigate(-1);
-  };
-
-  tg.onEvent("backButtonClicked", goBack);
+  tg.onEvent("backButtonClicked", () => navigate(-1));
 
   return (
     <div>
