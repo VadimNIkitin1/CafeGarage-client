@@ -24,8 +24,6 @@ const HomePage = () => {
   const navigate = useNavigate();
   const { tg } = useTelegram();
 
-  tg.BackButton.hide();
-
   useEffect(() => {
     tg.MainButton.setParams({
       text: "Перейти в корзину",
