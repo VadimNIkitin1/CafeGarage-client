@@ -40,13 +40,6 @@ export const addToCart = async (id) => {
       {
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin":
-            "https://delightful-speculoos-c98bd5.netlify.app",
-          "Access-Control-Allow-Headers":
-            "access-control-allow-methods, access-control-allow-headers,access-control-allow-credentials, access-control-allow-origin",
-          "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-          "Access-Control-Allow-Credentials": "true",
-          "Access-Control-Request-Headers": "content-type",
         },
       }
     );
