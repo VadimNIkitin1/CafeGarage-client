@@ -27,6 +27,6 @@ export const useTelegram = () => {
     onToggleBackButton,
     tg,
     user: tg.initDataUnsafe?.user,
-    queryId: tg.initDataUnsafe?.first_name,
+    queryId: tg.initDataUnsafe?.query_id,
   };
 };
