@@ -35,9 +35,7 @@ const HomePage = () => {
   }, [quantity]);
 
   const navigate = useNavigate();
-  const { tg } = useTelegram();
-
-  const name = tg.initDataUnsafe.first_name;
+  const { tg, queryId } = useTelegram();
 
   tg.BackButton.hide();
 
@@ -63,7 +61,7 @@ const HomePage = () => {
     <div>
       <p
         style={{ position: "absolute", fontSize: "20px" }}
-      >{`Hello ${name}`}</p>
+      >{`Hello ${queryId}`}</p>
       <CategoriesList />
       <Context.Provider value={{ cartArr, cartQuantity }}>
         <ProductList />
