@@ -35,7 +35,7 @@ const HomePage = () => {
   }, [quantity]);
 
   const navigate = useNavigate();
-  const { tg, queryId, user } = useTelegram();
+  const { tg, queryId, id } = useTelegram();
 
   tg.BackButton.hide();
 
@@ -59,13 +59,9 @@ const HomePage = () => {
 
   return (
     <div>
-      <p
-        style={{ position: "absolute", fontSize: "20px" }}
-      >{`Hello ${queryId}`}</p>
       <CategoriesList />
       <Context.Provider value={{ cartArr, cartQuantity }}>
         <ProductList />
-        <p style={{ position: "absolute", fontSize: "20px" }}>{`id ${user}`}</p>
       </Context.Provider>
     </div>
   );
