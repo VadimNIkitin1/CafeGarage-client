@@ -9,7 +9,7 @@ const ProductList = () => {
 
   return (
     <div className={"product-list"}>
-      <p>{tg.initDataUnsafe.id}</p>
+      <p>{tg.initDataUnsafe.first_name}</p>
       {categories.map((category) => (
         <ProductListElement
           key={category.id}
