@@ -37,6 +37,8 @@ const HomePage = () => {
   const navigate = useNavigate();
   const { tg } = useTelegram();
 
+  const name = tg.initDataUnsafe.first_name;
+
   tg.BackButton.hide();
 
   useEffect(() => {
@@ -59,6 +61,9 @@ const HomePage = () => {
 
   return (
     <div>
+      <p
+        style={{ position: "absolute", fontSize: "20px" }}
+      >{`Hello ${name}`}</p>
       <CategoriesList />
       <Context.Provider value={{ cartArr, cartQuantity }}>
         <ProductList />
