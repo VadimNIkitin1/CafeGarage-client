@@ -11,3 +11,19 @@
   color: white;
   margin: 1px 0;
 }
+
+.errorMsg {
+  color: red;
+}
+
+.submitBtn {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  background: #fb923c;
+  /* var(--tg-theme-button-color); */
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 10px 10px;
+}

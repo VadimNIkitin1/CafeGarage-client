@@ -1,42 +1,59 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { useTelegram } from "../../hooks/useTelegram";
+import { onClearCart } from "../../store/cartSlice";
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
-  const [name, setName] = useState("Имя:");
-  const [phone, setPhone] = useState("Телефон:");
-  const [address, setAddress] = useState("Адрес:");
-  const [comments, setComments] = useState("Комментарии:");
+  const { tg } = useTelegram();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    await reset();
+    await dispatch(onClearCart());
+    navigate("/");
+  };
+
+  useEffect(() => {
+    tg.MainButton.setParams({
+      text: "Заказать",
+    });
+  }, []);
+
+  if (isValid) {
+    tg.MainButton.show();
+  } else {
+    tg.MainButton.hide();
+  }
 
   return (
-    <form className={style.OrderForm}>
+    <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
       <input
         className={style.orderInput}
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        onClick={() => setName("")}
+        placeholder="Имя"
+        {...register("name", {
+          required: "Это поле обязательно для заполнения!",
+        })}
       />
+      {errors.name && <p className={style.errorMsg}>{errors.name.message}</p>}
       <input
         className={style.orderInput}
         type="tel"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        onClick={() => setPhone("")}
+        placeholder="Телефон"
+        {...register("phone", {
+          required: "Это поле обязательно для заполнения!",
+        })}
       />
-      <input
-        className={style.orderInput}
-        type="text"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
-        onClick={() => setAddress("")}
-      />
-      <input
-        className={style.orderInput}
-        type="text"
-        value={comments}
-        onChange={(e) => setComments(e.target.value)}
-        onClick={() => setComments("")}
-      />
+      {errors.phone && <p className={style.errorMsg}>{errors.phone.message}</p>}
     </form>
   );
 };

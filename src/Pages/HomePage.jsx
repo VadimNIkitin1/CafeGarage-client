@@ -35,7 +35,7 @@ const HomePage = () => {
   }, [quantity]);
 
   const navigate = useNavigate();
-  const { tg, queryId, id } = useTelegram();
+  const { tg } = useTelegram();
 
   tg.BackButton.hide();
 
