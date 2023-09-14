@@ -42,7 +42,9 @@ const OrderForm = () => {
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", handleSubmit(onSubmit));
-    tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
+    return () => {
+      tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
+    };
   }, [handleSubmit]);
 
   return (
