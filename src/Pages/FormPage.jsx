@@ -23,6 +23,7 @@ const FormPage = () => {
   tg.BackButton.show();
 
   const goBack = () => {
+    tg.MainButton.offClick();
     navigate("/");
   };
 
