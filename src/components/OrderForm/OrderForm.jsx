@@ -32,7 +32,6 @@ const OrderForm = () => {
   };
 
   useEffect(() => {
-    tg.BackButton.show();
     tg.MainButton.setParams({
       text: "Заказать",
     });
