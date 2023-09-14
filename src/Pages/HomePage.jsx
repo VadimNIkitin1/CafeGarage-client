@@ -59,7 +59,7 @@ const HomePage = () => {
     return () => {
       tg.offEvent("mainButtonClicked", goToForm);
     };
-  }, [goToForm]);
+  }, []);
 
   return (
     <div>
