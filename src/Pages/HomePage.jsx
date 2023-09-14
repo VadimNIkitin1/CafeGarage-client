@@ -37,6 +37,8 @@ const HomePage = () => {
   const navigate = useNavigate();
   const { tg } = useTelegram();
 
+  tg.MainButton.offClick();
+
   const goToForm = () => {
     navigate("/form");
   };
