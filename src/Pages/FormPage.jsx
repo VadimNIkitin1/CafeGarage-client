@@ -23,7 +23,7 @@ const FormPage = () => {
   tg.BackButton.show();
 
   const goBack = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   useEffect(() => {
