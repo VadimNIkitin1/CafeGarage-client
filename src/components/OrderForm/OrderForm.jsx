@@ -25,9 +25,10 @@ const OrderForm = () => {
       phone: data.phone,
     };
     console.log(requestData);
+
     await dispatch(onSendOrder(requestData));
     await reset();
-    await dispatch(onClearCart());
+    // await dispatch(onClearCart());
     navigate("/");
   };
 
