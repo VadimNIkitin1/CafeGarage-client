@@ -37,11 +37,13 @@ const OrderForm = () => {
     });
   }, []);
 
-  if (isValid) {
-    tg.MainButton.show();
-  } else {
-    tg.MainButton.hide();
-  }
+  useEffect(() => {
+    if (isValid) {
+      tg.MainButton.show();
+    } else {
+      tg.MainButton.hide();
+    }
+  }, [isValid]);
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", handleSubmit(onSubmit));
