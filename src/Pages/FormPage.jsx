@@ -31,7 +31,7 @@ const FormPage = () => {
   useEffect(() => {
     tg.onEvent("backButtonClicked", goBack);
     return () => {
-      tg.onEvent("backButtonClicked", goBack);
+      tg.offEvent("backButtonClicked", goBack);
     };
   }, [goBack]);
 
