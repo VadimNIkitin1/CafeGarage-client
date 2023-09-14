@@ -20,14 +20,20 @@ const FormPage = () => {
     dispatch(fetchTotalPrice());
   }, [quantity]);
 
-  tg.BackButton.show();
-  tg.MainButton.hide();
-
   const goBack = () => {
     navigate(-1);
   };
 
-  tg.onEvent("backButtonClicked", goBack);
+  useEffect(() => {
+    tg.BackButton.show();
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("backButtonClicked", goBack);
+    return () => {
+      tg.onEvent("backButtonClicked", goBack);
+    };
+  }, [goBack]);
 
   return (
     <div>

@@ -37,9 +37,8 @@ const HomePage = () => {
   const navigate = useNavigate();
   const { tg } = useTelegram();
 
-  tg.BackButton.hide();
-
   useEffect(() => {
+    tg.BackButton.hide();
     tg.MainButton.setParams({
       text: "Перейти в корзину",
     });
@@ -55,7 +54,12 @@ const HomePage = () => {
     tg.MainButton.show();
   }
 
-  tg.onEvent("mainButtonClicked", goToForm);
+  useEffect(() => {
+    tg.onEvent("mainButtonClicked", goToForm);
+    return () => {
+      tg.onEvent("mainButtonClicked", goToForm);
+    };
+  }, [goToForm]);
 
   return (
     <div>
