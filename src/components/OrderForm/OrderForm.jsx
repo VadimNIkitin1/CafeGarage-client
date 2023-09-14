@@ -44,16 +44,16 @@ const OrderForm = () => {
     }
   }, [isValid]);
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   useEffect(() => {
     tg.onEvent("mainButtonClicked", handleSubmit(onSubmit));
     return () => {
       tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
     };
   }, [handleSubmit, goBack]);
-
-  const goBack = () => {
-    navigate(-1);
-  };
 
   useEffect(() => {
     tg.onEvent("backButtonClicked", goBack);
