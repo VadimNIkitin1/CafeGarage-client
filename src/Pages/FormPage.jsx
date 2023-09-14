@@ -26,10 +26,7 @@ const FormPage = () => {
     navigate(-1);
   };
 
-  useEffect(() => {
-    tg.onEvent("backButtonClicked", goBack);
-    return () => tg.offEvent("backButtonClicked", goBack);
-  }, []);
+  tg.BackButton.onClick(goBack);
 
   return (
     <div>
