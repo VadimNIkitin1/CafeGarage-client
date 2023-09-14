@@ -37,6 +37,8 @@ const HomePage = () => {
   const navigate = useNavigate();
   const { tg } = useTelegram();
 
+  tg.MainButton.onClick(goToForm);
+
   useEffect(() => {
     tg.BackButton.hide();
     tg.MainButton.setParams({
@@ -53,10 +55,6 @@ const HomePage = () => {
   } else {
     tg.MainButton.show();
   }
-
-  tg.MainButton.offClick();
-
-  tg.MainButton.onClick(goToForm);
 
   return (
     <div>
