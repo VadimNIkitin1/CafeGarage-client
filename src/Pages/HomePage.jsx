@@ -38,10 +38,6 @@ const HomePage = () => {
   const { tg } = useTelegram();
 
   useEffect(() => {
-    tg.ready();
-  }, []);
-
-  useEffect(() => {
     tg.BackButton.hide();
     tg.MainButton.setParams({
       text: "Перейти в корзину",

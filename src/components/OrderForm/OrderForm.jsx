@@ -26,8 +26,7 @@ const OrderForm = () => {
     };
 
     await dispatch(onSendOrder(requestData));
-    await reset();
-    navigate("/");
+    tg.close();
   };
 
   useEffect(() => {
