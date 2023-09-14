@@ -41,9 +41,7 @@ const HomePage = () => {
     navigate("/form");
   };
 
-  useEffect(() => {
-    tg.MainButton.onClick(goToForm);
-  });
+  tg.MainButton.onClick(goToForm);
 
   useEffect(() => {
     tg.BackButton.hide();
