@@ -56,12 +56,12 @@ const OrderForm = () => {
     navigate(-1);
   };
 
-  useEffect(() => {
-    tg.onEvent("backButtonClicked", goBack);
-    return () => {
-      tg.onEvent("backButtonClicked", goBack);
-    };
-  }, []);
+  // useEffect(() => {
+  //   tg.onEvent("backButtonClicked", goBack);
+  //   return () => {
+  //     tg.onEvent("backButtonClicked", goBack);
+  //   };
+  // }, []);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
