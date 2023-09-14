@@ -107,17 +107,12 @@ export const getCartTotalPrice = async () => {
 
 export const sendOrder = async (order) => {
   try {
-    const res = await axios.post(
-      `/orders/create/`,
-      {
-        order,
+    const res = await axios.post(`/orders/create/`, order, {
+      headers: {
+        "Content-Type": "application/json",
       },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    });
+    console.log(res.data);
     return res.data;
   } catch (error) {
     console.log(error);
