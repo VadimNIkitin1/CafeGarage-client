@@ -28,16 +28,21 @@ const OrderForm = () => {
 
   useEffect(() => {
     if (isValid) {
-      tg.MainButton.show();
       tg.MainButton.setParams({
         text: "Заказать",
       });
+      tg.MainButton.show();
     } else {
       tg.MainButton.hide();
     }
   }, [isValid]);
 
-  // tg.MainButton.onClick(handleSubmit(onSubmit));
+  useEffect(() => {
+    tg.MainButton.onClick(handleSubmit(onSubmit));
+    return () => {
+      tg.MainButton.offClick(handleSubmit(onSubmit));
+    };
+  });
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
