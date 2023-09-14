@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTelegram } from "../../hooks/useTelegram";
-import { onClearCart } from "../../store/cartSlice";
+import { onClearCart, onSendOrder } from "../../store/cartSlice";
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
   const { tg } = useTelegram();
+  const cart = useSelector((state) => state.cart.cart);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
@@ -18,6 +19,13 @@ const OrderForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    const requestData = {
+      items: cart,
+      name: data.name,
+      phone: data.phone,
+    };
+    console.log(requestData);
+    await dispatch(onSendOrder(requestData));
     await reset();
     await dispatch(onClearCart());
     navigate("/");
@@ -44,7 +52,7 @@ const OrderForm = () => {
           required: "Это поле обязательно для заполнения!",
         })}
       />
-      {errors.name && <p className={style.errorMsg}>{errors.name.message}</p>}
+      {errors?.name && <p className={style.errorMsg}>{errors.name.message}</p>}
       <input
         className={style.orderInput}
         type="tel"
@@ -54,6 +62,7 @@ const OrderForm = () => {
         })}
       />
       {errors.phone && <p className={style.errorMsg}>{errors.phone.message}</p>}
+      <input type="submit" value="Заказать" />
     </form>
   );
 };
