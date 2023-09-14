@@ -48,6 +48,9 @@ const OrderForm = () => {
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", handleSubmit(onSubmit));
+    return () => {
+      tg.onEvent("mainButtonClicked", handleSubmit(onSubmit));
+    };
   }, []);
 
   const goBack = () => {
@@ -56,6 +59,9 @@ const OrderForm = () => {
 
   useEffect(() => {
     tg.onEvent("backButtonClicked", goBack);
+    return () => {
+      tg.onEvent("backButtonClicked", goBack);
+    };
   }, []);
 
   return (
