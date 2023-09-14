@@ -32,8 +32,9 @@ const OrderForm = () => {
     navigate("/");
   };
 
+  tg.BackButton.onClick(goBack);
+
   useEffect(() => {
-    tg.BackButton.onClick(goBack);
     return () => {
       tg.BackButton.offClick(goBack);
       tg.MainButton.offClick(handleSubmit(onSubmit));
