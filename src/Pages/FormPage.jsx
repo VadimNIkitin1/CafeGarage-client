@@ -26,7 +26,7 @@ const FormPage = () => {
     navigate(-1);
   };
 
-  tg.onEvent("backButtonClicked", goBack);
+  tg.onEvent("backButtonClicked", () => goBack);
 
   return (
     <div>
