@@ -43,6 +43,8 @@ const OrderForm = () => {
     tg.MainButton.hide();
   }
 
+  tg.onEvent("mainButtonClicked", onSubmit);
+
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
       <input
