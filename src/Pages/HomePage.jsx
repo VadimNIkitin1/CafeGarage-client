@@ -56,9 +56,7 @@ const HomePage = () => {
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", goToForm);
-    return () => {
-      tg.offEvent("mainButtonClicked", goToForm);
-    };
+    tg.offEvent("mainButtonClicked", goToForm);
   }, [goToForm]);
 
   return (
