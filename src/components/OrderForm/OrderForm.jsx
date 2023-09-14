@@ -26,6 +26,20 @@ const OrderForm = () => {
     tg.close();
   };
 
+  tg.BackButton.show();
+
+  const goBack = () => {
+    navigate("/");
+  };
+
+  useEffect(() => {
+    tg.BackButton.onClick(goBack);
+    return () => {
+      tg.BackButton.offClick(goBack);
+      tg.MainButton.offClick(handleSubmit(onSubmit));
+    };
+  }, [goBack]);
+
   useEffect(() => {
     tg.MainButton.setParams({
       text: "Заказать",
@@ -40,7 +54,12 @@ const OrderForm = () => {
     }
   }, [isValid]);
 
-  // tg.MainButton.onClick(handleSubmit(onSubmit));
+  useEffect(() => {
+    tg.MainButton.onClick(handleSubmit(onSubmit));
+    return () => {
+      tg.MainButton.offClick(handleSubmit(onSubmit));
+    };
+  }, [handleSubmit]);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
