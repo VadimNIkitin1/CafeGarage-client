@@ -54,6 +54,8 @@ const HomePage = () => {
     tg.MainButton.show();
   }
 
+  tg.MainButton.offClick();
+
   tg.MainButton.onClick(goToForm);
 
   return (
