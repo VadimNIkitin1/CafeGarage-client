@@ -49,7 +49,7 @@ const OrderForm = () => {
     return () => {
       tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
     };
-  }, [handleSubmit]);
+  }, [handleSubmit, goBack]);
 
   const goBack = () => {
     navigate(-1);
