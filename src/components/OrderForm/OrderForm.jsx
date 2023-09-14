@@ -32,6 +32,7 @@ const OrderForm = () => {
   };
 
   useEffect(() => {
+    tg.BackButton.show();
     tg.MainButton.setParams({
       text: "Заказать",
     });
@@ -50,7 +51,18 @@ const OrderForm = () => {
     return () => {
       tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
     };
-  }, [onSubmit]);
+  }, [handleSubmit]);
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  useEffect(() => {
+    tg.onEvent("backButtonClicked", goBack);
+    return () => {
+      tg.offEvent("backButtonClicked", goBack);
+    };
+  }, [goBack]);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
