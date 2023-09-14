@@ -41,8 +41,9 @@ const HomePage = () => {
     navigate("/form");
   };
 
+  tg.MainButton.onClick(goToForm);
+
   useEffect(() => {
-    tg.MainButton.onClick(goToForm);
     tg.BackButton.hide();
     tg.MainButton.setParams({
       text: "Перейти в корзину",
