@@ -40,12 +40,7 @@ const OrderForm = () => {
     }
   }, [isValid]);
 
-  useEffect(() => {
-    tg.onEvent("mainButtonClicked", handleSubmit(onSubmit));
-    return () => {
-      tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
-    };
-  }, [handleSubmit]);
+  tg.onEvent("mainButtonClicked", handleSubmit(onSubmit));
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
