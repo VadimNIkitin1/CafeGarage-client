@@ -27,7 +27,6 @@ const OrderForm = () => {
 
     await dispatch(onSendOrder(requestData));
     await reset();
-    // await dispatch(onClearCart());
     navigate("/");
   };
 
@@ -51,7 +50,7 @@ const OrderForm = () => {
     return () => {
       tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
     };
-  }, []);
+  }, [handleSubmit]);
 
   const goBack = () => {
     navigate(-1);
