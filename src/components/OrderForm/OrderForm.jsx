@@ -27,7 +27,7 @@ const OrderForm = () => {
 
     await dispatch(onSendOrder(requestData));
     await reset();
-    await dispatch(onClearCart());
+    // await dispatch(onClearCart());
     navigate("/");
   };
 
