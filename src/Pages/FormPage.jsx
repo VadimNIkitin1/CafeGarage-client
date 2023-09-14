@@ -15,10 +15,6 @@ const FormPage = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const { tg } = useTelegram();
 
-  const goToForm = () => {
-    navigate("/form");
-  };
-
   useEffect(() => {
     dispatch(fetchCart());
     dispatch(fetchTotalPrice());
@@ -27,7 +23,6 @@ const FormPage = () => {
   tg.BackButton.show();
 
   const goBack = () => {
-    tg.MainButton.onClick(goToForm);
     navigate("/");
   };
 
