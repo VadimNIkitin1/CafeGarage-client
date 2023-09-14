@@ -1,15 +1,13 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useTelegram } from "../../hooks/useTelegram";
-import { onClearCart, onSendOrder } from "../../store/cartSlice";
+import { onSendOrder } from "../../store/cartSlice";
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
   const { tg } = useTelegram();
   const cart = useSelector((state) => state.cart.cart);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
     register,
@@ -24,13 +22,11 @@ const OrderForm = () => {
       name: data.name,
       phone: data.phone,
     };
-
     await dispatch(onSendOrder(requestData));
     tg.close();
   };
 
   useEffect(() => {
-    tg.BackButton.show();
     tg.MainButton.setParams({
       text: "Заказать",
     });
@@ -44,24 +40,12 @@ const OrderForm = () => {
     }
   }, [isValid]);
 
-  const goBack = () => {
-    navigate(-1);
-    tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
-  };
-
   useEffect(() => {
     tg.onEvent("mainButtonClicked", handleSubmit(onSubmit));
     return () => {
       tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
     };
-  }, [handleSubmit, goBack]);
-
-  useEffect(() => {
-    tg.onEvent("backButtonClicked", goBack);
-    return () => {
-      tg.offEvent("backButtonClicked", goBack);
-    };
-  }, []);
+  }, [handleSubmit]);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
