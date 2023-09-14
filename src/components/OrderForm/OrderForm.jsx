@@ -51,7 +51,7 @@ const OrderForm = () => {
     return () => {
       tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
     };
-  }, [handleSubmit]);
+  }, []);
 
   const goBack = () => {
     navigate(-1);
@@ -62,7 +62,7 @@ const OrderForm = () => {
     return () => {
       tg.offEvent("backButtonClicked", goBack);
     };
-  }, [goBack]);
+  }, []);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
