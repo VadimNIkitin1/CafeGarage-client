@@ -22,11 +22,7 @@ const FormPage = () => {
 
   tg.BackButton.show();
 
-  const goBack = async () => {
-    await navigate(-1);
-  };
-
-  tg.BackButton.onClick(goBack);
+  tg.BackButton.onClick(navigate(-1));
 
   return (
     <div>
