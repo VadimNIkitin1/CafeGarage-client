@@ -28,7 +28,7 @@ const FormPage = () => {
     return () => {
       tg.offEvent("backButtonClicked", goBack);
     };
-  }, []);
+  }, [goBack]);
 
   return (
     <div>
