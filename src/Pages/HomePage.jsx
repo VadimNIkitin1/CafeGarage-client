@@ -37,6 +37,10 @@ const HomePage = () => {
   const navigate = useNavigate();
   const { tg } = useTelegram();
 
+  const goToForm = () => {
+    navigate("/form");
+  };
+
   tg.MainButton.onClick(goToForm);
 
   useEffect(() => {
@@ -45,10 +49,6 @@ const HomePage = () => {
       text: "Перейти в корзину",
     });
   }, []);
-
-  const goToForm = () => {
-    navigate("/form");
-  };
 
   if (cart.length === 0) {
     tg.MainButton.hide();
