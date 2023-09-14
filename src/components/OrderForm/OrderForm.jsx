@@ -40,7 +40,7 @@ const OrderForm = () => {
     }
   }, [isValid]);
 
-  // tg.onEvent("mainButtonClicked", handleSubmit(onSubmit));
+  tg.MainButton.onClick(handleSubmit(onSubmit));
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
