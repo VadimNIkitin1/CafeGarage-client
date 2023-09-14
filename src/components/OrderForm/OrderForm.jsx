@@ -26,21 +26,6 @@ const OrderForm = () => {
     tg.close();
   };
 
-  tg.BackButton.show();
-
-  const goBack = () => {
-    navigate("/");
-  };
-
-  tg.BackButton.onClick(goBack);
-
-  useEffect(() => {
-    return () => {
-      tg.BackButton.offClick(goBack);
-      tg.MainButton.offClick(handleSubmit(onSubmit));
-    };
-  }, [goBack]);
-
   useEffect(() => {
     tg.MainButton.setParams({
       text: "Заказать",
