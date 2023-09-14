@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -9,6 +10,8 @@ import { fetchCart, fetchTotalPrice } from "../store/cartSlice";
 
 const FormPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const quantity = useSelector((state) => state.cart.quantity);
   const { tg } = useTelegram();
 
