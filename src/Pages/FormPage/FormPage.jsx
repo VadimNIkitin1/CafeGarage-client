@@ -17,6 +17,8 @@ const FormPage = () => {
   const navigate = useNavigate();
 
   const quantity = useSelector((state) => state.cart.quantity);
+  const cart = useSelector((state) => state.cart.cart);
+
   const { tg } = useTelegram();
 
   const {
