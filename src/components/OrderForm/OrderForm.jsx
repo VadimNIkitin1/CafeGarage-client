@@ -37,6 +37,8 @@ const OrderForm = () => {
     }
   }, [isValid]);
 
+  tg.BackButton.show();
+
   const goBack = () => {
     tg.MainButton.offClick(handleSubmit(onSubmit));
     navigate("/");

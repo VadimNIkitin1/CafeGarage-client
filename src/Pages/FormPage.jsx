@@ -20,8 +20,6 @@ const FormPage = () => {
     dispatch(fetchTotalPrice());
   }, [quantity]);
 
-  tg.BackButton.show();
-
   return (
     <div>
       <OrderList />
