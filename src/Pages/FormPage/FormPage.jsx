@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import style from "./FormPage.module.css";
 
+import { onSendOrder } from "../../store/cartSlice";
+
 import OrderList from "../../components/OrderList/OrderList";
 
 import { useTelegram } from "../../hooks/useTelegram";
