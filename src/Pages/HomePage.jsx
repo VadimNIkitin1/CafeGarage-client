@@ -41,20 +41,19 @@ const HomePage = () => {
     navigate("/form");
   };
 
-  tg.MainButton.onClick(goToForm);
+  tg.BackButton.hide();
 
   useEffect(() => {
-    tg.BackButton.hide();
-    tg.MainButton.setParams({
-      text: "Перейти в корзину",
-    });
+    if (cart.length === 0) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.setParams({
+        text: "Перейти в корзину",
+      });
+      tg.MainButton.show();
+      tg.MainButton.onClick(goToForm);
+    }
   }, []);
-
-  if (cart.length === 0) {
-    tg.MainButton.hide();
-  } else {
-    tg.MainButton.show();
-  }
 
   return (
     <div>
