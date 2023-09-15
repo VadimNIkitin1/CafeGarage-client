@@ -12,7 +12,6 @@ const OrderForm = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isValid },
   } = useForm();
 
@@ -36,7 +35,6 @@ const OrderForm = () => {
     } else {
       return () => {
         tg.MainButton.hide();
-        tg.MainButton.offClick(handleSubmit(onSubmit));
       };
     }
   }, [isValid]);

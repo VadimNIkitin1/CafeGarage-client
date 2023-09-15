@@ -52,7 +52,6 @@ const HomePage = () => {
       tg.MainButton.onClick(goToForm);
     } else {
       return () => {
-        tg.MainButton.offClick(goToForm);
         tg.MainButton.hide();
       };
     }
