@@ -24,7 +24,6 @@ const OrderForm = () => {
       phone: data.phone,
     };
     await dispatch(onSendOrder(requestData));
-    // tg.close();
   };
 
   useEffect(() => {
