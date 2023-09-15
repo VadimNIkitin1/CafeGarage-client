@@ -47,9 +47,9 @@ const HomePage = () => {
     if (cart.length !== 0) {
       tg.MainButton.setParams({
         text: "Перейти в корзину",
-      });
-      tg.MainButton.show();
-      tg.MainButton.onClick(goToForm);
+      })
+        .show()
+        .onClick(goToForm);
     } else {
       tg.MainButton.hide();
     }
