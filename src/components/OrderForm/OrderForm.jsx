@@ -40,8 +40,8 @@ const OrderForm = () => {
   tg.BackButton.show();
 
   const goBack = () => {
-    tg.MainButton.offClick(handleSubmit(onSubmit));
     navigate("/");
+    tg.MainButton.offClick(handleSubmit(onSubmit));
   };
 
   tg.MainButton.onClick(handleSubmit(onSubmit));
