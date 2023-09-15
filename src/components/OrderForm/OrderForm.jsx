@@ -19,13 +19,13 @@ const OrderForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    tg.MainButton.offClick(handleSubmit(onSubmit));
     const requestData = {
       items: cart,
       name: data.name,
       phone: data.phone,
     };
     await dispatch(onSendOrder(requestData));
-    await tg.MainButton.offClick(handleSubmit(onSubmit));
     await reset();
   };
 
