@@ -39,7 +39,7 @@ const OrderForm = () => {
     }
 
     return () => {
-      tg.MainButton.offClick(handleSubmit(onSubmit));
+      tg.offEvent("mainButtonClicked", handleSubmit(onSubmit));
     };
   }, [isValid]);
 
