@@ -44,16 +44,16 @@ const HomePage = () => {
   tg.BackButton.hide();
 
   useEffect(() => {
-    if (cart.length === 0) {
-      tg.MainButton.hide();
-    } else {
+    if (cart.length !== 0) {
       tg.MainButton.setParams({
         text: "Перейти в корзину",
       });
       tg.MainButton.show();
       tg.MainButton.onClick(goToForm);
+    } else {
+      tg.MainButton.hide();
     }
-  }, []);
+  }, [cart]);
 
   return (
     <div>
