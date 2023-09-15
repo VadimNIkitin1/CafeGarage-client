@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import OrderList from "../components/OrderList/OrderList";
+import { useForm } from "react-hook-form";
 
 import { useTelegram } from "../hooks/useTelegram";
 
@@ -11,6 +12,7 @@ import { fetchCart, fetchTotalPrice } from "../store/cartSlice";
 const FormPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { reset } = useForm();
 
   const quantity = useSelector((state) => state.cart.quantity);
   const { tg } = useTelegram();
@@ -23,6 +25,7 @@ const FormPage = () => {
   tg.BackButton.show();
 
   const goBack = () => {
+    reset();
     navigate("/");
   };
 

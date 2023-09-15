@@ -53,7 +53,7 @@ const HomePage = () => {
     } else {
       tg.MainButton.hide();
     }
-  }, [cart]);
+  }, [cart.length]);
 
   return (
     <div>
