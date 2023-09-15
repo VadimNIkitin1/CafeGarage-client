@@ -33,7 +33,7 @@ const OrderForm = () => {
         text: "Заказать",
       });
       tg.MainButton.show();
-      tg.onClick(handleSubmit(onSubmit));
+      tg.MainButton.onClick(onSubmit);
     } else {
       tg.MainButton.hide();
     }
