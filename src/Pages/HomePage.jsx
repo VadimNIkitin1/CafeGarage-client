@@ -53,6 +53,9 @@ const HomePage = () => {
     } else {
       tg.MainButton.hide();
     }
+    return () => {
+      tg.MainButton.offClick(goToForm);
+    };
   }, [cart]);
 
   return (
