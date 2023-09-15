@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import HomePage from "./Pages/HomePage";
-import FormPage from "./Pages/FormPage";
+import FormPage from "./Pages/FormPage/FormPage";
 import ProductPage from "./Pages/ProductPage/ProductPage";
 import ErrorPage from "./Pages/ErrorPage";
 import NotFoundPage from "./Pages/NotFoundPage";
