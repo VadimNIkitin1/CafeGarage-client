@@ -54,9 +54,7 @@ const HomePage = () => {
     }
   }, [cart]);
 
-  useEffect(() => {
-    tg.MainButton.onClick(goToForm);
-  });
+  tg.MainButton.onClick(goToForm);
 
   return (
     <div>
