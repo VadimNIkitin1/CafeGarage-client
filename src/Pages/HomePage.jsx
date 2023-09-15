@@ -56,7 +56,7 @@ const HomePage = () => {
 
   useEffect(() => {
     tg.MainButton.onClick(goToForm);
-  }, [quantity]);
+  });
 
   return (
     <div>
