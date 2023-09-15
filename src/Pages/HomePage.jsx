@@ -44,7 +44,6 @@ const HomePage = () => {
   tg.BackButton.hide();
 
   useEffect(() => {
-    console.log("замена");
     if (cart.length !== 0) {
       tg.MainButton.setParams({
         text: "Перейти в корзину",

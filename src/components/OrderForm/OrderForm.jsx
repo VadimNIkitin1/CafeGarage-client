@@ -14,6 +14,7 @@ const OrderForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isValid },
   } = useForm();
 
@@ -24,6 +25,7 @@ const OrderForm = () => {
       phone: data.phone,
     };
     await dispatch(onSendOrder(requestData));
+    await reset();
   };
 
   useEffect(() => {
