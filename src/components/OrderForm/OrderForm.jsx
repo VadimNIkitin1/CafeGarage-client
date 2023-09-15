@@ -32,12 +32,11 @@ const OrderForm = () => {
         text: "Заказать",
       });
       tg.MainButton.show();
+      tg.MainButton.onClick(handleSubmit(onSubmit));
     } else {
       tg.MainButton.hide();
     }
   }, [isValid]);
-
-  // tg.MainButton.onClick(handleSubmit(onSubmit));
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
