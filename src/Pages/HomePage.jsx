@@ -51,6 +51,7 @@ const HomePage = () => {
       tg.MainButton.show();
       tg.MainButton.onClick(goToForm);
     } else {
+      tg.MainButton.offClick(goToForm);
       tg.MainButton.hide();
     }
   }, [cart]);
