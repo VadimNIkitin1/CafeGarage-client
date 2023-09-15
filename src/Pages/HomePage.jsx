@@ -55,7 +55,7 @@ const HomePage = () => {
         tg.MainButton.hide();
       };
     }
-  }, [cart]);
+  }, []);
 
   return (
     <div>
