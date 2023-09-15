@@ -34,6 +34,10 @@ const HomePage = () => {
     dispatch(fetchCart());
   }, [quantity]);
 
+  useEffect(() => {
+    window.location.reload();
+  }, []);
+
   const navigate = useNavigate();
   const { tg } = useTelegram();
 

@@ -22,10 +22,6 @@ const FormPage = () => {
 
   tg.BackButton.show();
 
-  useEffect(() => {
-    window.location.reload();
-  }, []);
-
   const goBack = () => {
     navigate("/");
   };
