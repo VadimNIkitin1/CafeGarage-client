@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { goBack } from "../utils/goBack";
 
 import OrderList from "../components/OrderList/OrderList";
 
@@ -21,10 +22,6 @@ const FormPage = () => {
   }, [quantity]);
 
   tg.BackButton.show();
-
-  const goBack = () => {
-    navigate("/");
-  };
 
   tg.BackButton.onClick(goBack);
 
