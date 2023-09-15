@@ -10,11 +10,11 @@ const ProductItem = ({ prod }) => {
   const { cartArr, cartQuantity } = useContext(Context);
 
   const dispatch = useDispatch();
-  const { name, price, id, image } = prod;
+  const { name, price, id, webp_image_url } = prod;
 
   return (
     <div className={"product"}>
-      <img className={"img"} src={image} />
+      <img className={"img"} src={webp_image_url} />
       <div className={"title_desc"}>
         <div className={"title"}>{name}</div>
         <Link to={`/products/${id}`} className={"description"}>

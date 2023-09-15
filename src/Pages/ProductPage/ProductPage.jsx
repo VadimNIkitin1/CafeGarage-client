@@ -1,14 +1,13 @@
-import { defer, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import style from "./ProductPage.module.css";
 import { useTelegram } from "../../hooks/useTelegram";
 import { useEffect, useState } from "react";
 import { getProductById } from "../../services/services";
-// import { products } from "../../mockDB/index.js";
 
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
-  const { description, image, name } = product;
+  const { description, name, webp_image_url } = product;
   const { tg } = useTelegram();
   const navigate = useNavigate();
   tg.BackButton.show();
@@ -24,7 +23,11 @@ const ProductPage = () => {
 
   return (
     <div className={style.productPage}>
-      <img className={style.img} src={image} alt={`${image}`} />
+      <img
+        className={style.img}
+        src={webp_image_url}
+        alt={`${webp_image_url}`}
+      />
       <h1 className={style.name}>{name}</h1>
       <i className={style.description}>{description}</i>
     </div>
