@@ -24,8 +24,8 @@ const OrderForm = () => {
       name: data.name,
       phone: data.phone,
     };
-    await tg.MainButton.offClick(handleSubmit(onSubmit));
     await dispatch(onSendOrder(requestData));
+    await tg.MainButton.offClick(handleSubmit(onSubmit));
     await reset();
   };
 
