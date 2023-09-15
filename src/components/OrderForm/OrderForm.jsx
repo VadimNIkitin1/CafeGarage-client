@@ -19,7 +19,6 @@ const OrderForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    tg.MainButton.offClick(handleSubmit(onSubmit));
     const requestData = {
       items: cart,
       name: data.name,
@@ -59,7 +58,7 @@ const OrderForm = () => {
         })}
       />
       {errors.phone && <p className={style.errorMsg}>{errors.phone.message}</p>}
-      <input type="submit" value="Заказать" />
+      {/* <input type="submit" value="Заказать" /> */}
     </form>
   );
 };
