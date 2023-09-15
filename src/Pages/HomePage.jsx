@@ -49,12 +49,11 @@ const HomePage = () => {
         text: "Перейти в корзину",
       });
       tg.MainButton.show();
+      tg.MainButton.onClick(goToForm);
     } else {
       tg.MainButton.hide();
     }
   }, [cart]);
-
-  tg.MainButton.onClick(goToForm);
 
   return (
     <div>
