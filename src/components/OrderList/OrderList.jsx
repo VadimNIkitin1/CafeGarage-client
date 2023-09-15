@@ -43,6 +43,7 @@ const OrderList = () => {
       <h4 className={style.deliveryText}>
         Доставка {totalPrice < 800 ? "249р 🚚" : "бесплатно 😊"}
       </h4>
+      <OrderForm />
     </div>
   );
 };
