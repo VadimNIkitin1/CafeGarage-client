@@ -4,11 +4,11 @@ import { useDispatch } from "react-redux";
 
 const CartItem = ({ prod, quantity, prodTotalPrice }) => {
   const dispatch = useDispatch();
-  const { image, name, price, id } = prod;
+  const { name, price, id, webp_image_url } = prod;
 
   return (
     <div className={style.CartItem}>
-      <img src={image} alt="image" className={style.image} />
+      <img src={webp_image_url} alt="webp_image_url" className={style.image} />
       <p className={style.name}>
         {name}
         <br />
