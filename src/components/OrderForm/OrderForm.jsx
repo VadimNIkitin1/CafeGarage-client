@@ -37,6 +37,15 @@ const OrderForm = () => {
     }
   }, [isValid]);
 
+  const goBack = () => {
+    tg.MainButton.offClick(handleSubmit(onSubmit));
+    navigate("/");
+  };
+
+  tg.MainButton.onClick(handleSubmit(onSubmit));
+
+  tg.BackButton.onClick(goBack);
+
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
       <input

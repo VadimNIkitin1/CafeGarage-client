@@ -22,12 +22,6 @@ const FormPage = () => {
 
   tg.BackButton.show();
 
-  const goBack = () => {
-    navigate("/");
-  };
-
-  tg.BackButton.onClick(goBack);
-
   return (
     <div>
       <OrderList />
