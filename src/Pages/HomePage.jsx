@@ -12,6 +12,7 @@ import { fetchProducts } from "../store/productsSlice";
 import { fetchCart } from "../store/cartSlice";
 
 export const Context = createContext(null);
+window.location.reload();
 
 const HomePage = () => {
   const dispatch = useDispatch();
