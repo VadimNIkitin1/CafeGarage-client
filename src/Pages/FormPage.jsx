@@ -23,6 +23,8 @@ const FormPage = () => {
   tg.BackButton.show();
 
   const goBack = () => {
+    window.location.reload();
+
     navigate("/");
   };
 
