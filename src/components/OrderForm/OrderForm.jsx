@@ -34,8 +34,10 @@ const OrderForm = () => {
       tg.MainButton.show();
       tg.MainButton.onClick(handleSubmit(onSubmit));
     } else {
-      tg.MainButton.offClick();
-      tg.MainButton.hide();
+      return () => {
+        tg.MainButton.hide();
+        tg.MainButton.onClick(handleSubmit(onSubmit));
+      };
     }
   }, [isValid]);
 
