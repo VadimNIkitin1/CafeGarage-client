@@ -20,6 +20,14 @@ const FormPage = () => {
     dispatch(fetchTotalPrice());
   }, [quantity]);
 
+  tg.BackButton.show();
+
+  const goBack = () => {
+    navigate("/");
+  };
+
+  tg.BackButton.onClick(goBack);
+
   return (
     <div>
       <OrderList />
