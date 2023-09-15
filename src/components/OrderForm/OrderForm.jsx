@@ -30,9 +30,8 @@ const OrderForm = () => {
     if (isValid) {
       tg.MainButton.setParams({
         text: "Заказать",
-      })
-        .show()
-        .onClick(handleSubmit(onSubmit));
+      }).show();
+      tg.MainButton.onClick(handleSubmit(onSubmit));
     } else {
       tg.MainButton.hide();
     }
