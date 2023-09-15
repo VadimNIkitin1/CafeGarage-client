@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../../hooks/useTelegram";
 import { onSendOrder } from "../../store/cartSlice";
 import style from "./OrderForm.module.css";
@@ -9,6 +10,7 @@ const OrderForm = () => {
   const { tg } = useTelegram();
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -22,7 +24,7 @@ const OrderForm = () => {
       phone: data.phone,
     };
     await dispatch(onSendOrder(requestData));
-    tg.close();
+    navigate("/");
   };
 
   useEffect(() => {
