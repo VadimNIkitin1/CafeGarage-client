@@ -23,6 +23,7 @@ const OrderForm = () => {
         name: data.name,
         phone: data.phone,
       };
+      console.log(requestData);
       dispatch(onSendOrder(requestData));
       reset();
       tg.close();
