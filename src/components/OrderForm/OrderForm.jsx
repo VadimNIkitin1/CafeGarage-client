@@ -24,6 +24,7 @@ const OrderForm = () => {
       name: data.name,
       phone: data.phone,
     };
+    console.log(requestData);
     await dispatch(onSendOrder(requestData));
     await reset();
     tg.close();
