@@ -28,7 +28,7 @@ const OrderForm = () => {
       reset();
       tg.close();
     },
-    [onSendOrder]
+    [onSubmit]
   );
 
   useEffect(() => {
