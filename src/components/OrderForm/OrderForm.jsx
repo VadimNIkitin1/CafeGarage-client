@@ -22,7 +22,6 @@ const OrderForm = () => {
       name: data.name,
       phone: data.phone,
     };
-    console.log(requestData);
     await dispatch(onSendOrder(requestData));
     await reset();
     tg.close();
@@ -35,6 +34,7 @@ const OrderForm = () => {
       })
         .show()
         .onClick(handleSubmit(onSubmit));
+      console.log(handleSubmit(onSubmit));
     } else {
       tg.MainButton.hide();
     }
