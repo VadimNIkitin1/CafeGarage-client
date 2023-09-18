@@ -27,7 +27,7 @@ const OrderForm = () => {
     tg.close();
   };
 
-  const variable = handleSubmit(onSubmit);
+  const mainButtonSubmitHandler = handleSubmit(onSubmit);
 
   useEffect(() => {
     if (isValid) {
@@ -35,13 +35,12 @@ const OrderForm = () => {
         text: "Заказать",
       })
         .show()
-        .onClick(variable);
-      console.log(variable);
+        .onClick(mainButtonSubmitHandler);
     } else {
       tg.MainButton.hide();
     }
     return () => {
-      tg.MainButton.offClick(variable);
+      tg.MainButton.offClick(mainButtonSubmitHandler);
     };
   }, [isValid]);
 
