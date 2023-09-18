@@ -22,6 +22,7 @@ const OrderForm = () => {
       name: data.name,
       phone: data.phone,
     };
+    console.log(requestData);
     await dispatch(onSendOrder(requestData));
     await reset();
     tg.close();
@@ -38,7 +39,6 @@ const OrderForm = () => {
       tg.MainButton.hide();
     }
     return () => {
-      console.log("return");
       tg.MainButton.offClick(handleSubmit(onSubmit));
     };
   }, [isValid]);
