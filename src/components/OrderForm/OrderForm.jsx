@@ -41,7 +41,7 @@ const OrderForm = () => {
   useEffect(() => {
     tg.MainButton.onClick(handleSubmit(onSubmit));
     return () => {
-      tg.offClick(handleSubmit(onSubmit));
+      tg.MainButton.offClick(handleSubmit(onSubmit));
     };
   }, [isValid, tg.MainButton.isVisible]);
 
