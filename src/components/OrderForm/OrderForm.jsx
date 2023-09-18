@@ -24,21 +24,20 @@ const OrderForm = () => {
     };
     await dispatch(onSendOrder(requestData));
     await reset();
+    tg.close();
   };
 
   useEffect(() => {
     if (isValid) {
       tg.MainButton.setParams({
         text: "Заказать",
-      }).show();
-      tg.MainButton.onEvent("mainButtonClicked", handleSubmit(onSubmit));
+      })
+        .show()
+        .onClick(handleSubmit(onSubmit));
     } else {
       tg.MainButton.hide();
     }
-    return () => {
-      tg.MainButton.offEvent("mainButtonClicked", handleSubmit(onSubmit));
-    };
-  }, [isValid, tg.MainButton.isVisible]);
+  }, [isValid]);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
