@@ -16,15 +16,15 @@ const OrderForm = () => {
     formState: { errors, isValid },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const requestData = {
       items: cart,
       name: data.name,
       phone: data.phone,
     };
     console.log(requestData);
-    dispatch(onSendOrder(requestData));
-    reset();
+    await dispatch(onSendOrder(requestData));
+    await reset();
     tg.close();
   };
 
