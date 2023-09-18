@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useTelegram } from "../../hooks/useTelegram";
@@ -16,16 +16,19 @@ const OrderForm = () => {
     formState: { errors, isValid },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    const requestData = {
-      items: cart,
-      name: data.name,
-      phone: data.phone,
-    };
-    await dispatch(onSendOrder(requestData));
-    await reset();
-    tg.close();
-  };
+  const onSubmit = useCallback(
+    (data) => {
+      const requestData = {
+        items: cart,
+        name: data.name,
+        phone: data.phone,
+      };
+      dispatch(onSendOrder(requestData));
+      reset();
+      tg.close();
+    },
+    [onSendOrder]
+  );
 
   useEffect(() => {
     if (isValid) {
@@ -37,6 +40,9 @@ const OrderForm = () => {
     } else {
       tg.MainButton.hide();
     }
+    return () => {
+      tg.MainButton.offClick(handleSubmit(onSubmit));
+    };
   }, [isValid]);
 
   return (
