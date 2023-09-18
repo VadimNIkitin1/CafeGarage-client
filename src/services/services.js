@@ -112,6 +112,7 @@ export const sendOrder = async (order) => {
         "Content-Type": "application/json",
       },
     });
+    console.log(order);
     return res.data;
   } catch (error) {
     console.log(error);
