@@ -27,19 +27,21 @@ const OrderForm = () => {
     tg.close();
   };
 
+  const variable = handleSubmit(onSubmit);
+
   useEffect(() => {
     if (isValid) {
       tg.MainButton.setParams({
         text: "Заказать",
       })
         .show()
-        .onClick(handleSubmit(onSubmit));
-      console.log(handleSubmit(onSubmit));
+        .onClick(variable);
+      console.log(variable);
     } else {
       tg.MainButton.hide();
     }
     return () => {
-      tg.MainButton.offClick(handleSubmit(onSubmit));
+      tg.MainButton.offClick(variable);
     };
   }, [isValid]);
 
