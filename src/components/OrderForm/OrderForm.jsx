@@ -33,11 +33,17 @@ const OrderForm = () => {
       tg.MainButton.setParams({
         text: "Заказать",
       }).show();
-      tg.MainButton.onClick(handleSubmit(onSubmit));
     } else {
       tg.MainButton.hide();
     }
   }, [isValid]);
+
+  useEffect(() => {
+    tg.MainButton.onClick(handleSubmit(onSubmit));
+    return () => {
+      tg.offClick(handleSubmit(onSubmit));
+    };
+  }, [isValid, tg.MainButton.isVisible]);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
