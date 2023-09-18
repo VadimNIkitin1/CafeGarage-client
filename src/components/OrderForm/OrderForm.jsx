@@ -24,7 +24,6 @@ const OrderForm = () => {
     };
     await dispatch(onSendOrder(requestData));
     await reset();
-    tg.close();
   };
 
   useEffect(() => {
@@ -33,18 +32,14 @@ const OrderForm = () => {
         text: "Заказать",
       })
         .show()
-        .onClick(handleSubmit(onSubmit));
+        .onEvent("mainButtonClicked", handleSubmit(onSubmit));
     } else {
       tg.MainButton.hide();
     }
+    return () => {
+      tg.MainButton.offEvent("mainButtonClicked", handleSubmit(onSubmit));
+    };
   }, [isValid]);
-
-  // useEffect(() => {
-  //   tg.MainButton.onClick(handleSubmit(onSubmit));
-  //   return () => {
-  //     tg.MainButton.offClick(handleSubmit(onSubmit));
-  //   };
-  // }, [isValid]);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
