@@ -30,16 +30,15 @@ const OrderForm = () => {
     if (isValid) {
       tg.MainButton.setParams({
         text: "Заказать",
-      })
-        .show()
-        .onEvent("mainButtonClicked", handleSubmit(onSubmit));
+      }).show();
+      tg.MainButton.onEvent("mainButtonClicked", handleSubmit(onSubmit));
     } else {
       tg.MainButton.hide();
     }
     return () => {
       tg.MainButton.offEvent("mainButtonClicked", handleSubmit(onSubmit));
     };
-  }, [isValid]);
+  }, [isValid, tg.MainButton.isVisible]);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
