@@ -50,7 +50,6 @@ export const onClearCart = createAsyncThunk("cart/onClearCart", async () => {
 export const onSendOrder = createAsyncThunk(
   "cart/onSendOrder",
   async (order, { dispatch }) => {
-    console.log(order);
     await dispatch(sendOrder(order));
   }
 );
