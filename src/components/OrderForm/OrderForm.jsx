@@ -28,12 +28,15 @@ const OrderForm = () => {
   };
 
   useEffect(() => {
-    tg.MainButton.setParams({
-      text: "Заказать",
-    })
-      .show()
-      .onClick(handleSubmit(onSubmit));
-
+    if (isValid) {
+      tg.MainButton.setParams({
+        text: "Заказать",
+      })
+        .show()
+        .onClick(handleSubmit(onSubmit));
+    } else {
+      tg.MainButton.hide();
+    }
     return () => {
       tg.MainButton.offClick(handleSubmit(onSubmit));
     };
