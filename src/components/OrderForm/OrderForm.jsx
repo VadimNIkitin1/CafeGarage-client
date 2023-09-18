@@ -24,7 +24,6 @@ const OrderForm = () => {
       name: data.name,
       phone: data.phone,
     };
-    console.log(requestData);
     await dispatch(onSendOrder(requestData));
     await reset();
     tg.close();
@@ -41,12 +40,12 @@ const OrderForm = () => {
     }
   }, [isValid]);
 
-  useEffect(() => {
-    tg.MainButton.onClick(handleSubmit(onSubmit));
-    return () => {
-      tg.MainButton.offClick(handleSubmit(onSubmit));
-    };
-  }, [isValid]);
+  // useEffect(() => {
+  //   tg.MainButton.onClick(handleSubmit(onSubmit));
+  //   return () => {
+  //     tg.MainButton.offClick(handleSubmit(onSubmit));
+  //   };
+  // }, [isValid]);
 
   return (
     <form className={style.OrderForm} onSubmit={handleSubmit(onSubmit)}>
