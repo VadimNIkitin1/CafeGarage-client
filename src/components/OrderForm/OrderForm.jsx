@@ -16,20 +16,17 @@ const OrderForm = () => {
     formState: { errors, isValid },
   } = useForm();
 
-  const onSubmit = useCallback(
-    (data) => {
-      const requestData = {
-        items: cart,
-        name: data.name,
-        phone: data.phone,
-      };
-      console.log(requestData);
-      dispatch(onSendOrder(requestData));
-      reset();
-      tg.close();
-    },
-    [onSubmit]
-  );
+  const onSubmit = (data) => {
+    const requestData = {
+      items: cart,
+      name: data.name,
+      phone: data.phone,
+    };
+    console.log(requestData);
+    dispatch(onSendOrder(requestData));
+    reset();
+    tg.close();
+  };
 
   useEffect(() => {
     if (isValid) {
