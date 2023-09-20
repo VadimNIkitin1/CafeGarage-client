@@ -41,6 +41,7 @@ export const addToCart = async (id) => {
         headers: {
           "Content-Type": "application/json",
         },
+        withCredentials: true,
       }
     );
     return res.data;
