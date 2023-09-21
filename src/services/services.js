@@ -123,7 +123,7 @@ export const sendOrder = async (order) => {
 
 export const sendQuery = async (data) => {
   try {
-    const res = await axios.post("http://45.9.41.211", data, {
+    const res = await axios.post("/orders/web-data/", data, {
       headers: {
         "Content-Type": "application/json",
       },

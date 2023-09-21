@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useTelegram } from "../../hooks/useTelegram";
 import { onSendOrder, onSendQuery } from "../../store/cartSlice";
+import InputMask from "react-input-mask";
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
@@ -13,6 +14,7 @@ const OrderForm = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isValid },
   } = useForm();
 
@@ -61,16 +63,31 @@ const OrderForm = () => {
         })}
       />
       {errors?.name && <p className={style.errorMsg}>{errors.name.message}</p>}
-      <input
+      <Controller
+        name="phoneNumber"
+        rules={{ required: true }}
+        control={control}
+        render={({ field }) => (
+          <InputMask mask="+7 (999) 999-99-99" maskChar=" " {...field}>
+            {(inputProps) => (
+              <input
+                {...inputProps}
+                className={style.orderInput}
+                placeholder="Телефон"
+              />
+            )}
+          </InputMask>
+        )}
+      />
+      {/* <input
         className={style.orderInput}
         type="tel"
         placeholder="Телефон"
         {...register("phone", {
           required: "Это поле обязательно для заполнения!",
         })}
-      />
+      /> */}
       {errors.phone && <p className={style.errorMsg}>{errors.phone.message}</p>}
-      {/* <input type="submit" value="Заказать" /> */}
     </form>
   );
 };
