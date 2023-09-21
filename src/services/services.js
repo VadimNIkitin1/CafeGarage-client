@@ -119,3 +119,18 @@ export const sendOrder = async (order) => {
     console.log(error);
   }
 };
+
+export const sendQuery = async (data) => {
+  try {
+    const res = await axios.post("http://45.9.41.211:443", data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    });
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

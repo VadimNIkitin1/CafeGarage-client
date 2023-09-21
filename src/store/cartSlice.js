@@ -6,6 +6,7 @@ import {
   getCartTotalPrice,
   clearCart,
   sendOrder,
+  sendQuery,
 } from "../services/services";
 
 export const fetchCart = createAsyncThunk("cart/fetchCart", async () => {
@@ -51,6 +52,13 @@ export const onSendOrder = createAsyncThunk(
   "cart/onSendOrder",
   async (order, { dispatch }) => {
     await dispatch(sendOrder(order));
+  }
+);
+
+export const onSendQuery = createAsyncThunk(
+  "cart/onSendQuery",
+  async (data, { dispatch }) => {
+    await dispatch(sendQuery(data));
   }
 );
 

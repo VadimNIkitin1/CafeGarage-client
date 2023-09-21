@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useTelegram } from "../../hooks/useTelegram";
-import { onSendOrder } from "../../store/cartSlice";
+import { onSendOrder, onSendQuery } from "../../store/cartSlice";
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
-  const { tg } = useTelegram();
+  const { tg, queryId } = useTelegram();
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   const {
@@ -22,6 +22,13 @@ const OrderForm = () => {
       name: data.name,
       phone: data.phone,
     };
+
+    const dataQuery = {
+      queryId,
+    };
+
+    await dispatch(onSendQuery(dataQuery));
+
     await dispatch(onSendOrder(requestData));
     await reset();
     tg.close();
