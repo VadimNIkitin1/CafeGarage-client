@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useTelegram } from "../../hooks/useTelegram";
 import { onSendOrder, onSendQuery } from "../../store/cartSlice";
+
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
@@ -24,11 +25,11 @@ const OrderForm = () => {
       phone: data.phone,
     };
 
-    const dataQuery = {
-      queryId,
-    };
+    // const dataQuery = {
+    //   queryId,
+    // };
 
-    await dispatch(onSendQuery(dataQuery));
+    // await dispatch(onSendQuery(dataQuery));
 
     await dispatch(onSendOrder(requestData));
     await reset();
