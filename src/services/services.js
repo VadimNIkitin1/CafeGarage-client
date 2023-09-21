@@ -114,6 +114,7 @@ export const sendOrder = async (order) => {
       },
       withCredentials: true,
     });
+    console.log(res.data);
     return res.data;
   } catch (error) {
     console.log(error);
