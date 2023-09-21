@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import InputMask from "react-input-mask";
 import { useTelegram } from "../../hooks/useTelegram";
 import { onSendOrder, onSendQuery } from "../../store/cartSlice";
-import InputMask from "react-input-mask";
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
