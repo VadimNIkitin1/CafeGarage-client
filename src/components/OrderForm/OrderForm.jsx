@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import Inputmask from "../../../node_modules/inputmask/bundle";
+import Inputmask from "../../../node_modules/inputmask/dist/inputmask";
 import { useTelegram } from "../../hooks/useTelegram";
 import { onSendOrder, onSendQuery } from "../../store/cartSlice";
 
