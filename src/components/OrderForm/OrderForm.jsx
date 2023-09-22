@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import Inputmask from "inputmask";
+
 import { useTelegram } from "../../hooks/useTelegram";
 import { onSendOrder, onSendQuery } from "../../store/cartSlice";
 
@@ -17,8 +17,6 @@ const OrderForm = () => {
     reset,
     formState: { errors, isValid },
   } = useForm();
-
-  Inputmask().mask(document.querySelectorAll("input"));
 
   const onSubmit = async (data) => {
     const requestData = {
@@ -65,7 +63,7 @@ const OrderForm = () => {
         })}
       />
       {errors?.name && <p className={style.errorMsg}>{errors.name.message}</p>}
-      {/* <input
+      <input
         className={style.orderInput}
         type="text"
         placeholder="Телефон"
@@ -73,12 +71,8 @@ const OrderForm = () => {
         {...register("phone", {
           required: "Это поле обязательно для заполнения!",
         })}
-      /> */}
-      <input
-        data-inputmask="'mask': '+7(999)999-99-99'"
-        className={style.orderInput}
-        placeholder="+7(   )"
       />
+
       {errors.phone && <p className={style.errorMsg}>{errors.phone.message}</p>}
     </form>
   );
