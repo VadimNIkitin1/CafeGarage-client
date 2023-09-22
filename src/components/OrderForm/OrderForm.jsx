@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import Inputmask from "inputmask";
+// import Inputmask from "inputmask";
 import { useTelegram } from "../../hooks/useTelegram";
 import { onSendOrder, onSendQuery } from "../../store/cartSlice";
 
@@ -18,7 +18,7 @@ const OrderForm = () => {
     formState: { errors, isValid },
   } = useForm();
 
-  Inputmask().mask(document.querySelectorAll("input"));
+  // Inputmask().mask(document.querySelectorAll("input"));
 
   const onSubmit = async (data) => {
     const requestData = {
@@ -75,10 +75,10 @@ const OrderForm = () => {
       />
       {errors.phone && <p className={style.errorMsg}>{errors.phone.message}</p>}
 
-      <input
+      {/* <input
         data-inputmask="'mask': '+7(999)999-99-99'"
         className={style.orderInput}
-      />
+      /> */}
     </form>
   );
 };
