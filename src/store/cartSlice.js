@@ -55,12 +55,12 @@ export const onSendOrder = createAsyncThunk(
   }
 );
 
-export const onSendQuery = createAsyncThunk(
-  "cart/onSendQuery",
-  async (data, { dispatch }) => {
-    await dispatch(sendQuery(data));
-  }
-);
+// export const onSendQuery = createAsyncThunk(
+//   "cart/onSendQuery",
+//   async (data, { dispatch }) => {
+//     await dispatch(sendQuery(data));
+//   }
+// );
 
 const slice = createSlice({
   name: "cart",

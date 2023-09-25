@@ -27,11 +27,11 @@ const OrderForm = () => {
       phone: data.phone,
     };
 
-    const dataQuery = {
-      queryId,
-    };
+    // const dataQuery = {
+    //   queryId,
+    // };
 
-    await dispatch(onSendQuery(dataQuery));
+    // await dispatch(onSendQuery(dataQuery));
 
     await dispatch(onSendOrder(requestData));
     await reset();

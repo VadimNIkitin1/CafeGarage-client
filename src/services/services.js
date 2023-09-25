@@ -121,17 +121,17 @@ export const sendOrder = async (order) => {
   }
 };
 
-export const sendQuery = async (data) => {
-  try {
-    const res = await axios.post("/orders/web-data/", data, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    });
-    console.log(res.data);
-    return res.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const sendQuery = async (data) => {
+//   try {
+//     const res = await axios.post("/orders/web-data/", data, {
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       withCredentials: true,
+//     });
+//     console.log(res.data);
+//     return res.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
