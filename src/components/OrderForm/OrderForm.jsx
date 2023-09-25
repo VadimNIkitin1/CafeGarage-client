@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 // import Inputmask from "inputmask";
 import { useTelegram } from "../../hooks/useTelegram";
-import { onSendOrder, onSendQuery } from "../../store/cartSlice";
+import { onSendOrder } from "../../store/cartSlice";
 
 import style from "./OrderForm.module.css";
 
