@@ -8,7 +8,7 @@ import { onSendOrder, onSendQuery } from "../../store/cartSlice";
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
-  const { tg, queryId } = useTelegram();
+  const { tg, id } = useTelegram();
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   const {
@@ -25,6 +25,7 @@ const OrderForm = () => {
       items: cart,
       name: data.name,
       phone: data.phone,
+      user_id: id,
     };
 
     // const dataQuery = {
