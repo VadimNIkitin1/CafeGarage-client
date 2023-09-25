@@ -1,19 +1,23 @@
 import { useNavigate, useParams } from "react-router-dom";
-import style from "./ProductPage.module.css";
 import { useTelegram } from "../../hooks/useTelegram";
-import { useEffect, useState } from "react";
-import { getProductById } from "../../services/services";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductById } from "../../store/productsSlice";
+
+import style from "./ProductPage.module.css";
 
 const ProductPage = () => {
-  const { id } = useParams();
-  const [product, setProduct] = useState([]);
-  const { description, name, webp_image_url } = product;
-  const { tg } = useTelegram();
   const navigate = useNavigate();
+  const { tg } = useTelegram();
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.products.product);
+  const { description, name, webp_image_url } = product;
+
   tg.BackButton.show();
 
   useEffect(() => {
-    getProductById(id).then((data) => setProduct(data));
+    dispatch(fetchProductById(id));
   }, []);
 
   const goBack = () => {
