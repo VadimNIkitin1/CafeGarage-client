@@ -27,11 +27,11 @@ const ProductItem = ({ prod }) => {
       <div className={style.purchase}>
         <span className={style.price}>{price} руб</span>
         {contains(cartArr, id) ? (
-          <div style={{ width: "100px", height: "40px" }}>
+          <div className={style.counterContainer}>
             <Counter id={id}>{cartQuantity[cartArr.indexOf(id)]}</Counter>
           </div>
         ) : (
-          <div style={{ width: "100px", height: "40px" }}>
+          <div className={style.addButtonContainer}>
             <AddButton onClick={() => dispatch(onAddProduct(id))}>
               Добавить
             </AddButton>

@@ -45,3 +45,13 @@
   font-weight: 700;
   white-space: nowrap;
 }
+
+.addButtonContainer {
+  width: 100px;
+  height: 40px;
+}
+
+.counterContainer {
+  width: 100px;
+  height: 40px;
+}
