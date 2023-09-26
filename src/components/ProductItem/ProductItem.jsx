@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import "./ProductItem.css";
 import { contains } from "../../utils/contains";
-import { onDecreaseProduct, onAddProduct } from "../../store/cartSlice";
+import { onAddProduct } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { useContext } from "react";
 import { Context } from "../../Pages/HomePage";
-import AddButton from "../../UI/addButton/addButton";
-import PlusButton from "../../UI/PlusButton/PlusButton";
-import MinusButton from "../../UI/MinusButton/MinusButton";
+import AddButton from "../../UI/AddButton/AddButton";
+
 import Counter from "../../UI/Counter/Counter";
 
 const ProductItem = ({ prod }) => {

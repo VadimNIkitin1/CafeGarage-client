@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../../store/productsSlice";
 import { fetchCart } from "../../store/cartSlice";
 import { onAddProduct } from "../../store/cartSlice";
-import AddButton from "../../UI/addButton/addButton";
+import AddButton from "../../UI/AddButton/AddButton";
 
 import style from "./ProductPage.module.css";
 
