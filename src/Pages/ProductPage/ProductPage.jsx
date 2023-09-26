@@ -46,11 +46,15 @@ const ProductPage = () => {
       <i className={style.description}>{description}</i>
       <div>
         {targetProd.length > 0 ? (
-          <Counter id={id}>{targetProd[0].quantity}</Counter>
+          <div style={{ width: "150px", height: "50px" }}>
+            <Counter id={id}>{targetProd[0].quantity}</Counter>
+          </div>
         ) : (
-          <AddButton onClick={() => dispatch(onAddProduct(id))}>
-            Добавить
-          </AddButton>
+          <div style={{ width: "150px", height: "50px" }}>
+            <AddButton onClick={() => dispatch(onAddProduct(id))}>
+              Добавить
+            </AddButton>
+          </div>
         )}
       </div>
     </div>

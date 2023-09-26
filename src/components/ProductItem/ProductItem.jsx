@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import style from "./ProductItem.module.css";
 import { contains } from "../../utils/contains";
 import { onAddProduct } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { useContext } from "react";
 import { Context } from "../../Pages/HomePage";
 import AddButton from "../../UI/AddButton/AddButton";
-
 import Counter from "../../UI/Counter/Counter";
+
+import style from "./ProductItem.module.css";
 
 const ProductItem = ({ prod }) => {
   const { cartArr, cartQuantity } = useContext(Context);
@@ -27,11 +27,15 @@ const ProductItem = ({ prod }) => {
       <div className={style.purchase}>
         <span className={style.price}>{price} руб</span>
         {contains(cartArr, id) ? (
-          <Counter id={id}>{cartQuantity[cartArr.indexOf(id)]}</Counter>
+          <div style={{ width: "100px", height: "40px" }}>
+            <Counter id={id}>{cartQuantity[cartArr.indexOf(id)]}</Counter>
+          </div>
         ) : (
-          <AddButton onClick={() => dispatch(onAddProduct(id))}>
-            Добавить
-          </AddButton>
+          <div style={{ width: "100px", height: "40px" }}>
+            <AddButton onClick={() => dispatch(onAddProduct(id))}>
+              Добавить
+            </AddButton>
+          </div>
         )}
       </div>
     </div>

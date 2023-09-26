@@ -14,7 +14,9 @@ const CartItem = ({ prod, quantity, prodTotalPrice }) => {
         <br />
         Итог {prodTotalPrice}
       </p>
-      <Counter id={id}>{quantity}</Counter>
+      <div style={{ width: "100px", height: "40px" }}>
+        <Counter id={id}>{quantity}</Counter>
+      </div>
     </div>
   );
 };

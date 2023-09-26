@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import style from "./OrderList.module.css";
 import { BsFillTrashFill } from "react-icons/bs";
+
 import OrderForm from "../OrderForm/OrderForm";
 import CartItem from "../CartItem/CartItem";
 import { onClearCart } from "../../store/cartSlice";
+
+import style from "./OrderList.module.css";
 
 const OrderList = () => {
   const dispatch = useDispatch();
