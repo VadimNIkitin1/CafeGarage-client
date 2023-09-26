@@ -1,14 +1,16 @@
 import { useSelector } from "react-redux";
+
 import ProductItem from "../ProductItem/ProductItem.jsx";
-import "./ProductListElement.css";
+
+import style from "./ProductListElement.module.css";
 
 const ProductListElement = ({ categoryName, categoryId }) => {
   const products = useSelector((state) => state.products.products);
   const filterProd = products.filter((prod) => prod.category === categoryId);
 
   return (
-    <div className={"list-element"}>
-      <h3 id={`${categoryName}`} className={"category-name"}>
+    <div className={style.listElement}>
+      <h3 id={`${categoryName}`} className={style.categoryName}>
         {categoryName}
       </h3>
       {filterProd.map((prod) => (

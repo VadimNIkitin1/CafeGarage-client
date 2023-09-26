@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./ProductItem.css";
+import style from "./ProductItem.module.css";
 import { contains } from "../../utils/contains";
 import { onAddProduct } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
@@ -16,16 +16,16 @@ const ProductItem = ({ prod }) => {
   const { name, price, id, webp_image_url } = prod;
 
   return (
-    <div className={"product"}>
-      <img className={"img"} src={webp_image_url} />
-      <div className={"title_desc"}>
-        <div className={"title"}>{name}</div>
-        <Link to={`/products/${id}`} className={"description"}>
+    <div className={style.product}>
+      <img className={style.img} src={webp_image_url} />
+      <div className={style.titleDesc}>
+        <div className={style.title}>{name}</div>
+        <Link to={`/products/${id}`} className={style.description}>
           Подробнее...
         </Link>
       </div>
-      <div className={"purchase"}>
-        <span className={"price"}>{price} руб</span>
+      <div className={style.purchase}>
+        <span className={style.price}>{price} руб</span>
         {contains(cartArr, id) ? (
           <Counter id={id}>{cartQuantity[cartArr.indexOf(id)]}</Counter>
         ) : (
