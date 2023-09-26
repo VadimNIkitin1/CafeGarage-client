@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 // import Inputmask from "inputmask";
 import { useTelegram } from "../../hooks/useTelegram";
-import { onSendOrder } from "../../store/cartSlice";
+import { onClearCart, onSendOrder } from "../../store/cartSlice";
 
 import style from "./OrderForm.module.css";
 
@@ -35,6 +35,7 @@ const OrderForm = () => {
     // await dispatch(onSendQuery(dataQuery));
 
     await dispatch(onSendOrder(requestData));
+    await dispatch(onClearCart());
     await reset();
     tg.close();
   };
