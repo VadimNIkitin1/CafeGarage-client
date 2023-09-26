@@ -28,4 +28,42 @@
 
 .description {
   font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.addBtn {
+  width: 100px;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 800;
+  background: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.quantityButtons {
+  display: flex;
+  align-items: center;
+}
+
+.plusBtn {
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #54be60;
+}
+
+.minusBtn {
+  padding: 15px;
+  border: none;
+  background: #fb923c;
+  border-radius: 5px;
+}
+
+.quantity {
+  font-size: 20px;
+  margin: 10px;
 }
