@@ -19,5 +19,5 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background: var(--tg-theme-secondary-bg-color);
+  background: var(--tg-theme-link-color);
 }
