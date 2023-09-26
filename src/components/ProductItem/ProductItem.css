@@ -33,19 +33,6 @@
   color: #a6a6a6;
 }
 
-.add-btn {
-  width: 100px;
-  border-radius: 10px;
-  padding: 10px 15px;
-  font-size: 16px;
-  font-weight: 800;
-  background: var(--tg-theme-button-color);
-  color: var(--tg-theme-button-text-color);
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
 .purchase {
   display: flex;
   flex-direction: column;
@@ -57,27 +44,4 @@
   font-size: 18px;
   font-weight: 700;
   white-space: nowrap;
-}
-
-.quantity-buttons {
-  display: flex;
-  align-items: center;
-}
-
-.plus-btn {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #54be60;
-}
-
-.minus-btn {
-  padding: 10px;
-  border: none;
-  background: #fb923c;
-  border-radius: 5px;
-}
-
-.quantity {
-  margin: 5px;
 }

@@ -5,6 +5,10 @@ import { onDecreaseProduct, onAddProduct } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { useContext } from "react";
 import { Context } from "../../Pages/HomePage";
+import AddButton from "../../UI/addButton/addButton";
+import PlusButton from "../../UI/PlusButton/PlusButton";
+import MinusButton from "../../UI/MinusButton/MinusButton";
+import Counter from "../../UI/Counter/Counter";
 
 const ProductItem = ({ prod }) => {
   const { cartArr, cartQuantity } = useContext(Context);
@@ -24,28 +28,11 @@ const ProductItem = ({ prod }) => {
       <div className={"purchase"}>
         <span className={"price"}>{price} руб</span>
         {contains(cartArr, id) ? (
-          <div className="quantity-buttons">
-            <button
-              className="minus-btn"
-              onClick={() => dispatch(onDecreaseProduct(id))}
-            >
-              ➖
-            </button>
-            <p className="quantity">{cartQuantity[cartArr.indexOf(id)]}</p>
-            <button
-              className="plus-btn"
-              onClick={() => dispatch(onAddProduct(id))}
-            >
-              ➕
-            </button>
-          </div>
+          <Counter id={id}>{cartQuantity[cartArr.indexOf(id)]}</Counter>
         ) : (
-          <button
-            className={"add-btn"}
-            onClick={() => dispatch(onAddProduct(id))}
-          >
+          <AddButton onClick={() => dispatch(onAddProduct(id))}>
             Добавить
-          </button>
+          </AddButton>
         )}
       </div>
     </div>

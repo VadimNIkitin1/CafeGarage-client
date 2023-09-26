@@ -4,9 +4,12 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../../store/productsSlice";
 import { fetchCart } from "../../store/cartSlice";
-import { onDecreaseProduct, onAddProduct } from "../../store/cartSlice";
+import { onAddProduct } from "../../store/cartSlice";
+import AddButton from "../../UI/addButton/addButton";
 
 import style from "./ProductPage.module.css";
+
+import Counter from "../../UI/Counter/Counter";
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -43,28 +46,11 @@ const ProductPage = () => {
       <i className={style.description}>{description}</i>
       <div>
         {targetProd.length > 0 ? (
-          <div className={style.quantityButtons}>
-            <button
-              className={style.minusBtn}
-              onClick={() => dispatch(onDecreaseProduct(id))}
-            >
-              ➖
-            </button>
-            <p className={style.quantity}>{targetProd[0].quantity}</p>
-            <button
-              className={style.plusBtn}
-              onClick={() => dispatch(onAddProduct(id))}
-            >
-              ➕
-            </button>
-          </div>
+          <Counter id={id}>{targetProd[0].quantity}</Counter>
         ) : (
-          <button
-            className={style.addBtn}
-            onClick={() => dispatch(onAddProduct(id))}
-          >
+          <AddButton onClick={() => dispatch(onAddProduct(id))}>
             Добавить
-          </button>
+          </AddButton>
         )}
       </div>
     </div>
