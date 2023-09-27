@@ -1,5 +1,4 @@
 import { useEffect, createContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import CategoriesList from "../components/CategoriesList/CategoriesList";
@@ -13,7 +12,6 @@ import { fetchCart } from "../store/cartSlice";
 
 const HomePage = () => {
   const { goToForm } = useCustomNavigate();
-  const navigate = useNavigate();
   const { tg } = useTelegram();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
