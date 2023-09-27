@@ -10,10 +10,11 @@ import AddButton from "../../UI/AddButton/AddButton";
 import style from "./ProductPage.module.css";
 
 import Counter from "../../UI/Counter/Counter";
+import { useGoBack } from "../../hooks/useGoBack";
 
 const ProductPage = () => {
-  const navigate = useNavigate();
   const { onToggleBackButton } = useTelegram();
+  const { goBack } = useGoBack();
   const { id } = useParams();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
@@ -31,10 +32,6 @@ const ProductPage = () => {
   useEffect(() => {
     dispatch(fetchCart());
   }, [quantity]);
-
-  const goBack = () => {
-    navigate(-1);
-  };
 
   onToggleBackButton(goBack);
 
