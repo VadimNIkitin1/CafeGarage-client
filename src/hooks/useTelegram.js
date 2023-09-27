@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const tg = window.Telegram.WebApp;
 
 export const useTelegram = () => {
@@ -13,12 +15,14 @@ export const useTelegram = () => {
     }
   };
 
-  const onToggleBackButton = () => {
-    if (tg.BackButton.isVisible) {
-      tg.BackButton.hide();
-    } else {
+  const onToggleBackButton = (cb) => {
+    useEffect(() => {
       tg.BackButton.show();
-    }
+      tg.BackButton.onClick(cb);
+      return () => {
+        tg.BackButton.offClick(cb);
+      };
+    }, []);
   };
 
   return {

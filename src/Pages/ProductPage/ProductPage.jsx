@@ -13,7 +13,7 @@ import Counter from "../../UI/Counter/Counter";
 
 const ProductPage = () => {
   const navigate = useNavigate();
-  const { tg } = useTelegram();
+  const { tg, onToggleBackButton } = useTelegram();
   const { id } = useParams();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
@@ -36,13 +36,7 @@ const ProductPage = () => {
     navigate(-1);
   };
 
-  useEffect(() => {
-    tg.BackButton.show();
-    tg.BackButton.onClick(goBack);
-    return () => {
-      tg.BackButton.offClick(goBack);
-    };
-  }, []);
+  onToggleBackButton(goBack);
 
   return (
     <div className={style.productPage}>
