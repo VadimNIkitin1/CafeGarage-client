@@ -15,7 +15,7 @@ export const Context = createContext(null);
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { tg, onToggleButton } = useTelegram();
+  const { tg } = useTelegram();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
   const cart = useSelector((state) => state.cart.cart);
@@ -41,12 +41,15 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    onToggleButton();
     tg.BackButton.hide();
     if (cart.length !== 0) {
       tg.MainButton.setParams({
         text: "Перейти в корзину",
-      }).onClick(goToForm);
+      })
+        .show()
+        .onClick(goToForm);
+    } else {
+      tg.MainButton.hide();
     }
     return () => {
       tg.MainButton.offClick(goToForm);
