@@ -36,12 +36,11 @@ const ProductPage = () => {
     navigate(-1);
   };
 
-  tg.BackButton.show();
-
   useEffect(() => {
-    tg.onClick(goBack);
+    tg.BackButton.show();
+    tg.BackButton.onClick(goBack);
     return () => {
-      tg.offClick(goBack);
+      tg.BackButton.offClick(goBack);
     };
   }, []);
 
