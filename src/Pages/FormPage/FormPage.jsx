@@ -25,8 +25,9 @@ const FormPage = () => {
     navigate("/");
   };
 
+  tg.BackButton.show();
+
   useEffect(() => {
-    tg.BackButton.show();
     tg.BackButton.onClick(goBack);
     return () => {
       tg.BackButton.offClick(goBack);

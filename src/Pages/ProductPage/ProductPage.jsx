@@ -36,8 +36,9 @@ const ProductPage = () => {
     navigate(-1);
   };
 
+  tg.BackButton.show();
+
   useEffect(() => {
-    tg.BackButton.show();
     tg.onClick(goBack);
     return () => {
       tg.offClick(goBack);
