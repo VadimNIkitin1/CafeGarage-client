@@ -6,6 +6,8 @@ export const useCart = () => {
   const cartArr = [];
   const cartQuantity = [];
 
+  const targetProd = cart.filter((prod) => prod.product.id === Number(id));
+
   cart.map(
     (el) => cartArr.push(el.product.id) && cartQuantity.push(el.quantity)
   );
@@ -13,5 +15,6 @@ export const useCart = () => {
   return {
     cartArr,
     cartQuantity,
+    targetProd,
   };
 };
