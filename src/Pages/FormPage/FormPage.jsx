@@ -14,7 +14,7 @@ const FormPage = () => {
 
   const quantity = useSelector((state) => state.cart.quantity);
 
-  const { tg } = useTelegram();
+  const { tg, onToggleBackButton } = useTelegram();
 
   useEffect(() => {
     dispatch(fetchCart());
@@ -25,14 +25,7 @@ const FormPage = () => {
     navigate("/");
   };
 
-  tg.BackButton.show();
-
-  useEffect(() => {
-    tg.BackButton.onClick(goBack);
-    return () => {
-      tg.BackButton.offClick(goBack);
-    };
-  }, []);
+  onToggleBackButton(goBack);
 
   return (
     <div>

@@ -13,7 +13,7 @@ import Counter from "../../UI/Counter/Counter";
 
 const ProductPage = () => {
   const navigate = useNavigate();
-  const { tg, onToggleBackButton } = useTelegram();
+  const { onToggleBackButton } = useTelegram();
   const { id } = useParams();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
