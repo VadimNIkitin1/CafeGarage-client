@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 // import Inputmask from "inputmask";
@@ -20,25 +20,28 @@ const OrderForm = () => {
 
   // Inputmask().mask(document.querySelectorAll("input"));
 
-  const onSubmit = async (data) => {
-    const requestData = {
-      items: cart,
-      name: data.name,
-      phone: data.phone,
-      user_id: id,
-    };
+  const onSubmit = useCallback(
+    (data) => {
+      const requestData = {
+        items: cart,
+        name: data.name,
+        phone: data.phone,
+        user_id: id,
+      };
 
-    // const dataQuery = {
-    //   queryId,
-    // };
+      // const dataQuery = {
+      //   queryId,
+      // };
 
-    // await dispatch(onSendQuery(dataQuery));
+      // await dispatch(onSendQuery(dataQuery));
 
-    await dispatch(onSendOrder(requestData));
-    await dispatch(onClearCart());
-    await reset();
-    onClose();
-  };
+      dispatch(onSendOrder(requestData));
+      dispatch(onClearCart());
+      reset();
+      onClose();
+    },
+    [data]
+  );
 
   const mainButtonSubmitHandler = handleSubmit(onSubmit);
 

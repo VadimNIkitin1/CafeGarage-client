@@ -1,5 +1,6 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useTelegram } from "../../hooks/useTelegram";
+import { useGoBack } from "../../hooks/useGoBack";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../../store/productsSlice";
@@ -10,7 +11,6 @@ import AddButton from "../../UI/AddButton/AddButton";
 import style from "./ProductPage.module.css";
 
 import Counter from "../../UI/Counter/Counter";
-import { useGoBack } from "../../hooks/useGoBack";
 
 const ProductPage = () => {
   const { onToggleBackButton } = useTelegram();
