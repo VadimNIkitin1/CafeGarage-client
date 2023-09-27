@@ -41,9 +41,8 @@ const HomePage = () => {
     navigate("/form");
   };
 
-  tg.BackButton.hide();
-
   useEffect(() => {
+    tg.BackButton.hide();
     if (cart.length !== 0) {
       tg.MainButton.setParams({
         text: "Перейти в корзину",
@@ -53,6 +52,9 @@ const HomePage = () => {
     } else {
       tg.MainButton.hide();
     }
+    return () => {
+      tg.MainButton.offClick(goToForm);
+    };
   }, [cart]);
 
   return (

@@ -21,13 +21,17 @@ const FormPage = () => {
     dispatch(fetchTotalPrice());
   }, [quantity]);
 
-  tg.BackButton.show();
-
   const goBack = () => {
     navigate("/");
   };
 
-  tg.BackButton.onClick(goBack);
+  useEffect(() => {
+    tg.BackButton.show();
+    tg.BackButton.onClick(goBack);
+    return () => {
+      tg.BackButton.offClick(goBack);
+    };
+  }, []);
 
   return (
     <div>

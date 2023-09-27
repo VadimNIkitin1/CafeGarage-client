@@ -24,8 +24,6 @@ const ProductPage = () => {
 
   const targetProd = cart.filter((prod) => prod.product.id === Number(id));
 
-  tg.BackButton.show();
-
   useEffect(() => {
     dispatch(fetchProductById(id));
   }, []);
@@ -37,7 +35,14 @@ const ProductPage = () => {
   const goBack = () => {
     navigate(-1);
   };
-  tg.onEvent("backButtonClicked", goBack);
+
+  useEffect(() => {
+    tg.BackButton.show();
+    tg.onClick(goBack);
+    return () => {
+      tg.offClick(goBack);
+    };
+  }, []);
 
   return (
     <div className={style.productPage}>
