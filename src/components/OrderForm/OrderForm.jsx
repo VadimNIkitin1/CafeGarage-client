@@ -8,7 +8,7 @@ import { onClearCart, onSendOrder } from "../../store/cartSlice";
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
-  const { tg, id } = useTelegram();
+  const { tg, id, onClose } = useTelegram();
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   const {
@@ -37,7 +37,7 @@ const OrderForm = () => {
     await dispatch(onSendOrder(requestData));
     await dispatch(onClearCart());
     await reset();
-    tg.close();
+    onClose();
   };
 
   const mainButtonSubmitHandler = handleSubmit(onSubmit);
