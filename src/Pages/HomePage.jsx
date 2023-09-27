@@ -14,6 +14,8 @@ import { fetchCart } from "../store/cartSlice";
 export const Context = createContext(null);
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  const { tg, onToggleButton } = useTelegram();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
   const cart = useSelector((state) => state.cart.cart);
@@ -34,23 +36,17 @@ const HomePage = () => {
     dispatch(fetchCart());
   }, [quantity]);
 
-  const navigate = useNavigate();
-  const { tg } = useTelegram();
-
   const goToForm = () => {
     navigate("/form");
   };
 
   useEffect(() => {
+    onToggleButton();
     tg.BackButton.hide();
     if (cart.length !== 0) {
       tg.MainButton.setParams({
         text: "Перейти в корзину",
-      })
-        .show()
-        .onClick(goToForm);
-    } else {
-      tg.MainButton.hide();
+      }).onClick(goToForm);
     }
     return () => {
       tg.MainButton.offClick(goToForm);
