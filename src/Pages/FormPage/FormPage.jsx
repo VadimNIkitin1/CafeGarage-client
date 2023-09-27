@@ -6,11 +6,11 @@ import OrderList from "../../components/OrderList/OrderList";
 import { useTelegram } from "../../hooks/useTelegram";
 
 import { fetchCart, fetchTotalPrice } from "../../store/cartSlice";
-import { useGoBack } from "../../hooks/useGoBack";
+import { useCustomNavigate } from "../../hooks/useCustomNavigate";
 
 const FormPage = () => {
   const dispatch = useDispatch();
-  const { goBack } = useGoBack();
+  const { goBack } = useCustomNavigate();
   const { onToggleBackButton } = useTelegram();
 
   const quantity = useSelector((state) => state.cart.quantity);

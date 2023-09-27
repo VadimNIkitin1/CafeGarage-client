@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useTelegram } from "../../hooks/useTelegram";
-import { useGoBack } from "../../hooks/useGoBack";
+import { useCustomNavigate } from "../../hooks/useCustomNavigate";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../../store/productsSlice";
@@ -14,7 +14,7 @@ import Counter from "../../UI/Counter/Counter";
 
 const ProductPage = () => {
   const { onToggleBackButton } = useTelegram();
-  const { goBack } = useGoBack();
+  const { goBack } = useCustomNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);

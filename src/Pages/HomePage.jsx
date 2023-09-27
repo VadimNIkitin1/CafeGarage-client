@@ -12,6 +12,7 @@ import { fetchProducts } from "../store/productsSlice";
 import { fetchCart } from "../store/cartSlice";
 
 const HomePage = () => {
+  const { goToForm } = useCustomNavigate();
   const navigate = useNavigate();
   const { tg } = useTelegram();
   const dispatch = useDispatch();
@@ -26,10 +27,6 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(fetchCart());
   }, [quantity]);
-
-  const goToForm = () => {
-    navigate("/form");
-  };
 
   useEffect(() => {
     tg.BackButton.hide();
