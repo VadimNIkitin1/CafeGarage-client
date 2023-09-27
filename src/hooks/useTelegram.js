@@ -7,14 +7,6 @@ export const useTelegram = () => {
     tg.close();
   };
 
-  const onToggleButton = () => {
-    if (tg.MainButton.isVisible) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
-    }
-  };
-
   const onToggleBackButton = (cb) => {
     useEffect(() => {
       tg.BackButton.show();
@@ -27,7 +19,6 @@ export const useTelegram = () => {
 
   return {
     onClose,
-    onToggleButton,
     onToggleBackButton,
     tg,
     id: tg.initDataUnsafe?.user?.id,

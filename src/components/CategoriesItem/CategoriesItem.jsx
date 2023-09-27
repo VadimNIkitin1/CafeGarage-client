@@ -3,8 +3,9 @@ import { toggleTabs } from "../../store/activeSlice";
 import style from "./CategoriesItem.module.css";
 
 const CategoriesItem = ({ category, index }) => {
-  const activeTab = useSelector((state) => state.activeTab.active);
   const dispatch = useDispatch();
+  const activeTab = useSelector((state) => state.activeTab.active);
+
   return (
     <a
       className={activeTab === index ? style.categoryActive : style.category}

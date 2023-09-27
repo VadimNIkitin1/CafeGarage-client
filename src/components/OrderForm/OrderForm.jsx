@@ -8,9 +8,9 @@ import { onClearCart, onSendOrder } from "../../store/cartSlice";
 import style from "./OrderForm.module.css";
 
 const OrderForm = () => {
-  const { tg, id, onClose } = useTelegram();
-  const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
+  const { tg, id, onClose } = useTelegram();
   const {
     register,
     handleSubmit,

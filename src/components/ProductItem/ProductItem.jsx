@@ -9,9 +9,9 @@ import Counter from "../../UI/Counter/Counter";
 import style from "./ProductItem.module.css";
 
 const ProductItem = ({ prod }) => {
+  const dispatch = useDispatch();
   const { cartArr, cartQuantity } = useCart();
 
-  const dispatch = useDispatch();
   const { name, price, id, webp_image_url } = prod;
 
   return (

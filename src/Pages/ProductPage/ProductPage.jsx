@@ -11,7 +11,6 @@ import AddButton from "../../UI/AddButton/AddButton";
 import style from "./ProductPage.module.css";
 
 import Counter from "../../UI/Counter/Counter";
-import { useCart } from "../../hooks/useCart";
 
 const ProductPage = () => {
   const { onToggleBackButton } = useTelegram();
