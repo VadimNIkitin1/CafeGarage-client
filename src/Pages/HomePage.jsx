@@ -5,6 +5,7 @@ import CategoriesList from "../components/CategoriesList/CategoriesList";
 import ProductList from "../components/ProductList/ProductList";
 
 import { useTelegram } from "../hooks/useTelegram";
+import { useCustomNavigate } from "../hooks/useCustomNavigate";
 
 import { fetchCategories } from "../store/categoriesSlice";
 import { fetchProducts } from "../store/productsSlice";
