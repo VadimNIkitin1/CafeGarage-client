@@ -40,7 +40,7 @@ const OrderForm = () => {
       reset();
       onClose();
     },
-    [data]
+    [cart]
   );
 
   const mainButtonSubmitHandler = handleSubmit(onSubmit);
