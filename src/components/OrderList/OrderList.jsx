@@ -1,31 +1,22 @@
-import { useDispatch, useSelector } from "react-redux";
-import { BsFillTrashFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 import OrderForm from "../OrderForm/OrderForm";
 import CartItem from "../CartItem/CartItem";
-import { onClearCart } from "../../store/cartSlice";
 
 import style from "./OrderList.module.css";
-import { useCustomNavigate } from "../../hooks/useCustomNavigate";
+import TrashButton from "../../UI/TrashButton/TrashButton";
+import { useCart } from "../../hooks/useCart";
 
 const OrderList = () => {
-  const dispatch = useDispatch();
-  const { goBack } = useCustomNavigate();
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const cart = useSelector((state) => state.cart.cart);
-
-  const onClear = async () => {
-    await dispatch(onClearCart());
-    goBack();
-  };
+  const { onClear } = useCart();
 
   return (
     <div className={style.orderListContainer}>
       <div className={style.orderTitle}>
         <h1>Ваш заказ</h1>
-        <button className={style.trashBtn} onClick={() => onClear()}>
-          <BsFillTrashFill />
-        </button>
+        <TrashButton onClick={() => onClear()} />
       </div>
       <div>
         {!cart.length ? (
