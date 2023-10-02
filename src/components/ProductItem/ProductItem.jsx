@@ -30,9 +30,10 @@ const ProductItem = ({ prod }) => {
           </div>
         ) : (
           <div className={style.addButtonContainer}>
-            <AddButton onClick={() => dispatch(onAddProduct(id))}>
-              Добавить
-            </AddButton>
+            <AddButton
+              onClick={() => dispatch(onAddProduct(id))}
+              text={"Добавить"}
+            />
           </div>
         )}
       </div>
