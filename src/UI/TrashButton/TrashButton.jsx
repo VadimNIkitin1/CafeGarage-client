@@ -1,9 +1,9 @@
 import { BsFillTrashFill } from "react-icons/bs";
 import style from "./TrashButton.module.css";
 
-const TrashButton = ({ onClick }) => {
+const TrashButton = (props) => {
   return (
-    <button className={style.button} onClick={onClick}>
+    <button className={style.button} {...props}>
       <BsFillTrashFill />
     </button>
   );
