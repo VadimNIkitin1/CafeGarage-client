@@ -16,7 +16,7 @@ const OrderList = () => {
 
   const onClear = () => {
     dispatch(onClearCart());
-    goBack;
+    goBack();
   };
 
   return (
