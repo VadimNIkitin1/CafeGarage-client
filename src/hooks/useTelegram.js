@@ -9,8 +9,7 @@ export const useTelegram = () => {
 
   const onToggleBackButton = (cb) => {
     useEffect(() => {
-      tg.BackButton.show();
-      tg.BackButton.onClick(cb);
+      tg.BackButton.show().onClick(cb);
       return () => {
         tg.BackButton.offClick(cb);
       };

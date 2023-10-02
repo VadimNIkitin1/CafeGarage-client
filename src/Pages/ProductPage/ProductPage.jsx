@@ -11,19 +11,18 @@ import AddButton from "../../UI/AddButton/AddButton";
 import style from "./ProductPage.module.css";
 
 import Counter from "../../UI/Counter/Counter";
+import { useCart } from "../../hooks/useCart";
 
 const ProductPage = () => {
-  const { onToggleBackButton } = useTelegram();
-  const { goBack } = useCustomNavigate();
-  const { id } = useParams();
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
   const product = useSelector((state) => state.products.product);
-  const cart = useSelector((state) => state.cart.cart);
+  const { id } = useParams();
+  const { onToggleBackButton } = useTelegram();
+  const { goBack } = useCustomNavigate();
+  const { targetProd } = useCart(id);
 
   const { description, name, webp_image_url } = product;
-
-  const targetProd = cart.filter((prod) => prod.product.id === Number(id));
 
   useEffect(() => {
     dispatch(fetchProductById(id));

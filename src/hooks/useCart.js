@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-export const useCart = () => {
+export const useCart = (id) => {
   const cart = useSelector((state) => state.cart.cart);
 
   const cartArr = [];
@@ -10,8 +10,11 @@ export const useCart = () => {
     (el) => cartArr.push(el.product.id) && cartQuantity.push(el.quantity)
   );
 
+  const targetProd = cart.filter((prod) => prod.product.id === Number(id));
+
   return {
     cartArr,
     cartQuantity,
+    targetProd,
   };
 };
