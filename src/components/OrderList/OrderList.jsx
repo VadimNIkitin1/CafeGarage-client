@@ -14,8 +14,8 @@ const OrderList = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const cart = useSelector((state) => state.cart.cart);
 
-  const onClear = () => {
-    dispatch(onClearCart());
+  const onClear = async () => {
+    await dispatch(onClearCart());
     goBack();
   };
 
