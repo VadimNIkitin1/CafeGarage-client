@@ -1,5 +1,6 @@
 import style from "./CartItem.module.css";
 import Counter from "../../UI/Counter/Counter";
+import { textCut } from "../../utils/textCut";
 
 const CartItem = ({ prod, quantity, prodTotalPrice }) => {
   const { name, price, id, webp_image_url } = prod;
@@ -8,7 +9,7 @@ const CartItem = ({ prod, quantity, prodTotalPrice }) => {
     <div className={style.CartItem}>
       <img src={webp_image_url} alt="webp_image_url" className={style.image} />
       <p className={style.name}>
-        {name}
+        {textCut(name, 30)}
         <br />
         {price} руб
         <br />
