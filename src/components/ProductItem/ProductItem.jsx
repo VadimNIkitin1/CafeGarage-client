@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useCart } from "../../hooks/useCart";
 import { contains } from "../../utils/contains";
+import { textCut } from "../../utils/textCut";
 import { onAddProduct } from "../../store/cartSlice";
 import AddButton from "../../UI/AddButton/AddButton";
 import Counter from "../../UI/Counter/Counter";
@@ -17,7 +18,7 @@ const ProductItem = ({ prod }) => {
     <div className={style.product}>
       <img className={style.img} src={webp_image_url} />
       <div className={style.titleDesc}>
-        <div className={style.title}>{name}</div>
+        <div className={style.title}>{textCut(name, 30)}</div>
         <Link to={`/products/${id}`} className={style.description}>
           Подробнее...
         </Link>
