@@ -10,7 +10,7 @@ import style from "./OrderForm.module.css";
 const OrderForm = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
-  const { tg, id, onClose } = useTelegram();
+  const { tg, id, onClose, initData } = useTelegram();
   const {
     register,
     handleSubmit,
@@ -27,6 +27,7 @@ const OrderForm = () => {
         name: data.name,
         phone: data.phone,
         user_id: id,
+        initData,
       };
 
       // const dataQuery = {
@@ -34,7 +35,7 @@ const OrderForm = () => {
       // };
 
       // await dispatch(onSendQuery(dataQuery));
-
+      console.log(requestData);
       dispatch(onSendOrder(requestData));
       dispatch(onClearCart());
       reset();
