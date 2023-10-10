@@ -18,11 +18,11 @@ const ProductPage = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const product = useSelector((state) => state.products.product);
   const { id } = useParams();
-  const { onToggleBackButton, initData2 } = useTelegram();
+  const { onToggleBackButton, initData1 } = useTelegram();
   const { goBack } = useCustomNavigate();
   const { targetProd } = useCart(id);
 
-  console.log(initData2);
+  console.log(initData1);
 
   const { description, name, webp_image_url } = product;
 
