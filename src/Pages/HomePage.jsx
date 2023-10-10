@@ -16,7 +16,9 @@ const HomePage = () => {
   const cart = useSelector((state) => state.cart.cart);
   const quantity = useSelector((state) => state.cart.quantity);
   const { goToForm } = useCustomNavigate();
-  const { tg } = useTelegram();
+  const { tg, initData2 } = useTelegram();
+
+  console.log(initData2);
 
   useEffect(() => {
     dispatch(fetchCategories());
