@@ -7,6 +7,8 @@ export const useTelegram = () => {
     tg.close();
   };
 
+  let initData = new URLSearchParams(tg?.initData);
+
   const onToggleBackButton = (cb) => {
     useEffect(() => {
       tg.BackButton.show().onClick(cb);
@@ -20,7 +22,7 @@ export const useTelegram = () => {
     onClose,
     onToggleBackButton,
     tg,
-    initData: tg?.initData,
+    initData,
     id: tg.initDataUnsafe?.user?.id,
     queryId: tg.initDataUnsafe?.query_id,
   };
