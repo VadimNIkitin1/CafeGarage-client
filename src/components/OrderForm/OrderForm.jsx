@@ -10,7 +10,7 @@ import style from "./OrderForm.module.css";
 const OrderForm = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
-  const { tg, id, onClose, initData } = useTelegram();
+  const { tg, id, onClose, initDataHash } = useTelegram();
   const {
     register,
     handleSubmit,
@@ -27,7 +27,7 @@ const OrderForm = () => {
         name: data.name,
         phone: data.phone,
         user_id: id,
-        initData,
+        initDataHash,
       };
 
       // const dataQuery = {
